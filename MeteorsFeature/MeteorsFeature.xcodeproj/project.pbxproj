@@ -1,0 +1,481 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F1676F9F26A1DC03009F0644 /* MeteorsFeature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1676F9526A1DC02009F0644 /* MeteorsFeature.framework */; };
+		F1676FA426A1DC03009F0644 /* MeteorsFeatureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1676FA326A1DC03009F0644 /* MeteorsFeatureTests.swift */; };
+		F1676FA626A1DC03009F0644 /* MeteorsFeature.h in Headers */ = {isa = PBXBuildFile; fileRef = F1676F9826A1DC02009F0644 /* MeteorsFeature.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F1676FB626A1DC3C009F0644 /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = F1676FB526A1DC3C009F0644 /* Networking */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F1676FA026A1DC03009F0644 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F1676F8C26A1DC02009F0644 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F1676F9426A1DC02009F0644;
+			remoteInfo = MeteorsFeature;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F1676F9526A1DC02009F0644 /* MeteorsFeature.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MeteorsFeature.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1676F9826A1DC02009F0644 /* MeteorsFeature.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeteorsFeature.h; sourceTree = "<group>"; };
+		F1676F9926A1DC02009F0644 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1676F9E26A1DC03009F0644 /* MeteorsFeatureTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeteorsFeatureTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1676FA326A1DC03009F0644 /* MeteorsFeatureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeteorsFeatureTests.swift; sourceTree = "<group>"; };
+		F1676FA526A1DC03009F0644 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F1676F9226A1DC02009F0644 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1676FB626A1DC3C009F0644 /* Networking in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F1676F9B26A1DC03009F0644 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1676F9F26A1DC03009F0644 /* MeteorsFeature.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F1676F8B26A1DC02009F0644 = {
+			isa = PBXGroup;
+			children = (
+				F1676F9726A1DC02009F0644 /* MeteorsFeature */,
+				F1676FA226A1DC03009F0644 /* MeteorsFeatureTests */,
+				F1676F9626A1DC02009F0644 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F1676F9626A1DC02009F0644 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F1676F9526A1DC02009F0644 /* MeteorsFeature.framework */,
+				F1676F9E26A1DC03009F0644 /* MeteorsFeatureTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F1676F9726A1DC02009F0644 /* MeteorsFeature */ = {
+			isa = PBXGroup;
+			children = (
+				F1676F9826A1DC02009F0644 /* MeteorsFeature.h */,
+				F1676F9926A1DC02009F0644 /* Info.plist */,
+			);
+			path = MeteorsFeature;
+			sourceTree = "<group>";
+		};
+		F1676FA226A1DC03009F0644 /* MeteorsFeatureTests */ = {
+			isa = PBXGroup;
+			children = (
+				F1676FA326A1DC03009F0644 /* MeteorsFeatureTests.swift */,
+				F1676FA526A1DC03009F0644 /* Info.plist */,
+			);
+			path = MeteorsFeatureTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		F1676F9026A1DC02009F0644 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1676FA626A1DC03009F0644 /* MeteorsFeature.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		F1676F9426A1DC02009F0644 /* MeteorsFeature */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F1676FA926A1DC03009F0644 /* Build configuration list for PBXNativeTarget "MeteorsFeature" */;
+			buildPhases = (
+				F1676F9026A1DC02009F0644 /* Headers */,
+				F1676F9126A1DC02009F0644 /* Sources */,
+				F1676F9226A1DC02009F0644 /* Frameworks */,
+				F1676F9326A1DC02009F0644 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MeteorsFeature;
+			packageProductDependencies = (
+				F1676FB526A1DC3C009F0644 /* Networking */,
+			);
+			productName = MeteorsFeature;
+			productReference = F1676F9526A1DC02009F0644 /* MeteorsFeature.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		F1676F9D26A1DC03009F0644 /* MeteorsFeatureTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F1676FAC26A1DC03009F0644 /* Build configuration list for PBXNativeTarget "MeteorsFeatureTests" */;
+			buildPhases = (
+				F1676F9A26A1DC03009F0644 /* Sources */,
+				F1676F9B26A1DC03009F0644 /* Frameworks */,
+				F1676F9C26A1DC03009F0644 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F1676FA126A1DC03009F0644 /* PBXTargetDependency */,
+			);
+			name = MeteorsFeatureTests;
+			productName = MeteorsFeatureTests;
+			productReference = F1676F9E26A1DC03009F0644 /* MeteorsFeatureTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F1676F8C26A1DC02009F0644 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1230;
+				LastUpgradeCheck = 1230;
+				TargetAttributes = {
+					F1676F9426A1DC02009F0644 = {
+						CreatedOnToolsVersion = 12.3;
+					};
+					F1676F9D26A1DC03009F0644 = {
+						CreatedOnToolsVersion = 12.3;
+					};
+				};
+			};
+			buildConfigurationList = F1676F8F26A1DC02009F0644 /* Build configuration list for PBXProject "MeteorsFeature" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F1676F8B26A1DC02009F0644;
+			packageReferences = (
+				F1676FB426A1DC3C009F0644 /* XCRemoteSwiftPackageReference "Networking" */,
+			);
+			productRefGroup = F1676F9626A1DC02009F0644 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F1676F9426A1DC02009F0644 /* MeteorsFeature */,
+				F1676F9D26A1DC03009F0644 /* MeteorsFeatureTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F1676F9326A1DC02009F0644 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F1676F9C26A1DC03009F0644 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F1676F9126A1DC02009F0644 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F1676F9A26A1DC03009F0644 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1676FA426A1DC03009F0644 /* MeteorsFeatureTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F1676FA126A1DC03009F0644 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F1676F9426A1DC02009F0644 /* MeteorsFeature */;
+			targetProxy = F1676FA026A1DC03009F0644 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		F1676FA726A1DC03009F0644 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		F1676FA826A1DC03009F0644 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		F1676FAA26A1DC03009F0644 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = MeteorsFeature/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = diego.MeteorsFeature;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F1676FAB26A1DC03009F0644 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = MeteorsFeature/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = diego.MeteorsFeature;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F1676FAD26A1DC03009F0644 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = MeteorsFeatureTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = diego.MeteorsFeatureTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F1676FAE26A1DC03009F0644 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = MeteorsFeatureTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = diego.MeteorsFeatureTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F1676F8F26A1DC02009F0644 /* Build configuration list for PBXProject "MeteorsFeature" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F1676FA726A1DC03009F0644 /* Debug */,
+				F1676FA826A1DC03009F0644 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F1676FA926A1DC03009F0644 /* Build configuration list for PBXNativeTarget "MeteorsFeature" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F1676FAA26A1DC03009F0644 /* Debug */,
+				F1676FAB26A1DC03009F0644 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F1676FAC26A1DC03009F0644 /* Build configuration list for PBXNativeTarget "MeteorsFeatureTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F1676FAD26A1DC03009F0644 /* Debug */,
+				F1676FAE26A1DC03009F0644 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F1676FB426A1DC3C009F0644 /* XCRemoteSwiftPackageReference "Networking" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:dijeba/Networking.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F1676FB526A1DC3C009F0644 /* Networking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F1676FB426A1DC3C009F0644 /* XCRemoteSwiftPackageReference "Networking" */;
+			productName = Networking;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = F1676F8C26A1DC02009F0644 /* Project object */;
+}
