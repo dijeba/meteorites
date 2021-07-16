@@ -3,22 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F1676F8726A1DA25009F0644 /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = F1676F8626A1DA25009F0644 /* Networking */; };
 		F1E78484269F81A40032DCB9 /* App_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E78483269F81A40032DCB9 /* App_iOSApp.swift */; };
 		F1E78486269F81A40032DCB9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E78485269F81A40032DCB9 /* ContentView.swift */; };
 		F1E78488269F81AE0032DCB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1E78487269F81AE0032DCB9 /* Assets.xcassets */; };
 		F1E7848B269F81AE0032DCB9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1E7848A269F81AE0032DCB9 /* Preview Assets.xcassets */; };
 		F1E78496269F81AF0032DCB9 /* App_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E78495269F81AF0032DCB9 /* App_iOSTests.swift */; };
 		F1E784A1269F81AF0032DCB9 /* App_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E784A0269F81AF0032DCB9 /* App_iOSUITests.swift */; };
-		F1E784B5269F81C90032DCB9 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1E784B4269F81C90032DCB9 /* Core.framework */; };
-		F1E784B6269F81C90032DCB9 /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F1E784B4269F81C90032DCB9 /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		F1E784B9269F81CD0032DCB9 /* MeteorList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1E784B8269F81CD0032DCB9 /* MeteorList.framework */; };
-		F1E784BA269F81CD0032DCB9 /* MeteorList.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F1E784B8269F81CD0032DCB9 /* MeteorList.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		F1E784BC269F81D10032DCB9 /* MeteorLocator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1E784BB269F81D10032DCB9 /* MeteorLocator.framework */; };
-		F1E784BD269F81D10032DCB9 /* MeteorLocator.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F1E784BB269F81D10032DCB9 /* MeteorLocator.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,22 +32,6 @@
 			remoteInfo = "App-iOS";
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		F1E784B7269F81C90032DCB9 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				F1E784BD269F81D10032DCB9 /* MeteorLocator.framework in Embed Frameworks */,
-				F1E784BA269F81CD0032DCB9 /* MeteorList.framework in Embed Frameworks */,
-				F1E784B6269F81C90032DCB9 /* Core.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		F1E78480269F81A40032DCB9 /* App-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "App-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,9 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F1E784BC269F81D10032DCB9 /* MeteorLocator.framework in Frameworks */,
-				F1E784B9269F81CD0032DCB9 /* MeteorList.framework in Frameworks */,
-				F1E784B5269F81C90032DCB9 /* Core.framework in Frameworks */,
+				F1676F8726A1DA25009F0644 /* Networking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,13 +156,15 @@
 				F1E7847C269F81A40032DCB9 /* Sources */,
 				F1E7847D269F81A40032DCB9 /* Frameworks */,
 				F1E7847E269F81A40032DCB9 /* Resources */,
-				F1E784B7269F81C90032DCB9 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "App-iOS";
+			packageProductDependencies = (
+				F1676F8626A1DA25009F0644 /* Networking */,
+			);
 			productName = "App-iOS";
 			productReference = F1E78480269F81A40032DCB9 /* App-iOS.app */;
 			productType = "com.apple.product-type.application";
@@ -257,6 +236,9 @@
 				Base,
 			);
 			mainGroup = F1E78477269F81A40032DCB9;
+			packageReferences = (
+				F1676F8526A1DA25009F0644 /* XCRemoteSwiftPackageReference "Networking" */,
+			);
 			productRefGroup = F1E78481269F81A40032DCB9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -461,7 +443,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"App-iOS/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "App-iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -469,7 +451,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "diego.App-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -482,7 +464,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"App-iOS/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "App-iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -490,7 +472,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "diego.App-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -614,6 +596,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F1676F8526A1DA25009F0644 /* XCRemoteSwiftPackageReference "Networking" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:dijeba/Networking.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F1676F8626A1DA25009F0644 /* Networking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F1676F8526A1DA25009F0644 /* XCRemoteSwiftPackageReference "Networking" */;
+			productName = Networking;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F1E78478269F81A40032DCB9 /* Project object */;
 }

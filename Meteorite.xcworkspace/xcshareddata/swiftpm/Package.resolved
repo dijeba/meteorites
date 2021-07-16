@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Networking",
+        "repositoryURL": "git@github.com:dijeba/Networking.git",
+        "state": {
+          "branch": null,
+          "revision": "3d3a9adbadc2328336f5a93e23a9068d86994a92",
+          "version": "1.0.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

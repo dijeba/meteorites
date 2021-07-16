@@ -4,13 +4,4 @@
    <FileRef
       location = "group:App-iOS/App-iOS.xcodeproj">
    </FileRef>
-   <FileRef
-      location = "group:Core/Core.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:MeteorLocator/MeteorLocator.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:MeteorList/MeteorList.xcodeproj">
-   </FileRef>
 </Workspace>
