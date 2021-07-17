@@ -6,32 +6,39 @@
 //
 
 import SwiftUI
+import MeteorsFeature
 
 struct TabBarView: View {
+    
+//    init() {
+//        UITabBar.appearance().barTintColor = .white
+//        UITabBar.appearance().unselectedItemTintColor = UIColor(named: "ClearBackground")
+//    }
+    
     var body: some View {
         TabView {
-            Text("Home Tab")
-                .font(.system(size: 30, weight: .bold, design: .rounded))
+            MeteoriteList()
                 .tabItem {
-                    Image(systemName: "house.fill")
-                    Text("Home")
+                    Image(systemName: "list.star")
+                    Text("Meteorites")
                 }
             
-            Text("Bookmark Tab")
+            Text("Tab 2")
                 .font(.system(size: 30, weight: .bold, design: .rounded))
                 .tabItem {
-                    Image(systemName: "bookmark.circle.fill")
-                    Text("Bookmark")
+                    Image(systemName: "figure.walk")
+                    Text("Near me")
                 }
             
-            Text("Video Tab")
+            Text("Tab 3")
                 .font(.system(size: 30, weight: .bold, design: .rounded))
                 .tabItem {
-                    Image(systemName: "video.circle.fill")
-                    Text("Video")
+                    Image(systemName: "heart.fill")
+                    Text("Favorites")
                 }
         }
         .accentColor(Color("AccentColor"))
+        
     }
 }
 
