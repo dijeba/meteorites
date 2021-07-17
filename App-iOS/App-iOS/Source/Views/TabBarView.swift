@@ -43,8 +43,13 @@ struct TabBarView: View {
 }
 
 struct TabBarView_Previews: PreviewProvider {
+    
     static var previews: some View {
-        TabBarView().preferredColorScheme(.light)
-        TabBarView().preferredColorScheme(.dark)
+        
+        TabBarView()
+            .preferredColorScheme(.light)
+        
+        TabBarView()
+            .preferredColorScheme(.dark)
     }
 }

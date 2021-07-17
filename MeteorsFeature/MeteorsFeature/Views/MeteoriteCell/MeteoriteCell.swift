@@ -9,27 +9,27 @@ import SwiftUI
 
 struct MeteoriteCell: View {
     
-    let meteorite: MeteoriteCellModel
+    let model: MeteoriteCellModel
     
     var body: some View {
         VStack {
             HStack {
-                TitleTextView(text: meteorite.name)
+                TitleTextView(text: model.name)
                 Spacer()
                 VStack {
-                    CaptionTextView(text: meteorite.yearTitle)
-                    SubtitleThinTextView(text: meteorite.year)
+                    CaptionTextView(text: model.yearTitle)
+                    SubtitleThinTextView(text: model.year)
                 }
             }
             .padding()
             
             HStack {
                 VStack {
-                    CaptionTextView(text: meteorite.massTitle)
-                    SubtitleThinTextView(text: meteorite.mass)
+                    CaptionTextView(text: model.massTitle)
+                    SubtitleThinTextView(text: model.mass)
                 }
                 Spacer()
-                FavButton(isFavorite: meteorite.isFavorite)
+                FavButton(isFavorite: model.isFavorite)
             }
             .padding()
         }
@@ -50,39 +50,23 @@ struct MeteoriteCell: View {
             .fill(Color("SecondaryColor", bundle: Bundle.module))
         )
         .padding()
+        .background(Color.clear)
     }
 }
 
 private struct FavButton: View {
     
     @State var isFavorite: Bool
-    @Environment(\.colorScheme) var colorScheme
-    
-    private var systemName: String {
-        if colorScheme == .light {
-            return isFavorite ? "heart.fill" : "heart"
-        } else {
-            return "heart.fill"
-        }
-    }
-    
-    private var color: Color {
-        if isFavorite {
-            return Color("AccentColor", bundle: Bundle.module)
-        } else {
-            return Color("PrimaryColor", bundle: Bundle.module)
-        }
-    }
     
     var body: some View {
         
         Button(action: {
             print("Fav changed")
         }, label: {
-            Image(systemName: systemName)
+            Image(systemName: FavoriteButtonModel.systemName(isFav: isFavorite))
                 .resizable()
                 .frame(width: 35, height: 30)
-                .foregroundColor(color)
+                .foregroundColor(FavoriteButtonModel.color(isFav: isFavorite))
         })
     }
 }
@@ -91,34 +75,16 @@ struct Cells_Previews: PreviewProvider {
     
     static var previews: some View {
         
-        let meteoriteFav = MeteoriteCellModel(
-            name: "A Meteorite",
-            year: "1985",
-            yearTitle: Constants.MeteoriteCell.yearTitle,
-            _mass: "800",
-            massTitle: Constants.MeteoriteCell.massTitle,
-            isFavorite: true
-        )
-        
-        let meteoriteNotFav = MeteoriteCellModel(
-            name: "A Meteorite with a very long long name",
-            year: "1985",
-            yearTitle: Constants.MeteoriteCell.yearTitle,
-            _mass: "800",
-            massTitle: Constants.MeteoriteCell.massTitle,
-            isFavorite: false
-        )
-        
         VStack {
-            MeteoriteCell(meteorite: meteoriteFav)
-            MeteoriteCell(meteorite: meteoriteNotFav)
+            MeteoriteCell(model: PreviewMockGenerator.MeteoriteCell.Fav)
+            MeteoriteCell(model: PreviewMockGenerator.MeteoriteCell.NotFav)
         }
         .preferredColorScheme(.light)
             
         
         VStack {
-            MeteoriteCell(meteorite: meteoriteFav)
-            MeteoriteCell(meteorite: meteoriteNotFav)
+            MeteoriteCell(model: PreviewMockGenerator.MeteoriteCell.Fav)
+            MeteoriteCell(model: PreviewMockGenerator.MeteoriteCell.NotFav)
         }
         .preferredColorScheme(.dark)
     }

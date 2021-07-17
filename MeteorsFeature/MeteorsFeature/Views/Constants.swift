@@ -9,6 +9,16 @@ import UIKit
 
 enum Constants {
     
+    enum MeteoriteList {
+        static let title = "Meteorites"
+    }
+    
+    enum MeteoriteListBg {
+        static let opacityLight = 0.1
+        static let opacityDark = 0.2
+        static let floatingButtonSize = CGFloat(60)
+    }
+    
     enum TextView {
         static let kerning = CGFloat(1.5)
     }
