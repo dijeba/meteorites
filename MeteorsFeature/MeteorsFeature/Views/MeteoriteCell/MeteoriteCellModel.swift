@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MeteoriteCellModel: Identifiable {
     
-    var id = UUID()
+    let id = UUID()
     
     let name: String
     let year: String

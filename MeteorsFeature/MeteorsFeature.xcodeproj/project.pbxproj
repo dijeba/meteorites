@@ -20,6 +20,9 @@
 		09F5E53926A3259C009E3FFF /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F5E53826A3259C009E3FFF /* Buttons.swift */; };
 		09F5E53C26A32B0E009E3FFF /* FiltersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F5E53B26A32B0E009E3FFF /* FiltersView.swift */; };
 		09F5E54026A44C14009E3FFF /* FiltersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F5E53F26A44C14009E3FFF /* FiltersViewModel.swift */; };
+		09F5E54326A47482009E3FFF /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F5E54226A47482009E3FFF /* MapView.swift */; };
+		09F5E54526A4748F009E3FFF /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F5E54426A4748F009E3FFF /* MapViewModel.swift */; };
+		09F5E54726A48D55009E3FFF /* MapViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F5E54626A48D55009E3FFF /* MapViewModelFactory.swift */; };
 		F1676F9F26A1DC03009F0644 /* MeteorsFeature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1676F9526A1DC02009F0644 /* MeteorsFeature.framework */; };
 		F1676FA426A1DC03009F0644 /* MeteorsFeatureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1676FA326A1DC03009F0644 /* MeteorsFeatureTests.swift */; };
 		F1676FA626A1DC03009F0644 /* MeteorsFeature.h in Headers */ = {isa = PBXBuildFile; fileRef = F1676F9826A1DC02009F0644 /* MeteorsFeature.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -50,6 +53,9 @@
 		09F5E53826A3259C009E3FFF /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		09F5E53B26A32B0E009E3FFF /* FiltersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersView.swift; sourceTree = "<group>"; };
 		09F5E53F26A44C14009E3FFF /* FiltersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersViewModel.swift; sourceTree = "<group>"; };
+		09F5E54226A47482009E3FFF /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		09F5E54426A4748F009E3FFF /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		09F5E54626A48D55009E3FFF /* MapViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModelFactory.swift; sourceTree = "<group>"; };
 		F1676F9526A1DC02009F0644 /* MeteorsFeature.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MeteorsFeature.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1676F9826A1DC02009F0644 /* MeteorsFeature.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeteorsFeature.h; sourceTree = "<group>"; };
 		F1676F9926A1DC02009F0644 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -127,6 +133,7 @@
 				09F5E53226A30961009E3FFF /* PreviewMockGenerator.swift */,
 				097FE1DA26A1FD8200E7A423 /* TextViews.swift */,
 				09F5E53A26A32AF7009E3FFF /* Filters */,
+				09F5E54126A4740D009E3FFF /* MapView */,
 				097FE1DF26A2062200E7A423 /* MeteoriteCell */,
 				09F5E52F26A3065B009E3FFF /* MeteoriteList */,
 			);
@@ -157,6 +164,16 @@
 				09F5E53F26A44C14009E3FFF /* FiltersViewModel.swift */,
 			);
 			path = Filters;
+			sourceTree = "<group>";
+		};
+		09F5E54126A4740D009E3FFF /* MapView */ = {
+			isa = PBXGroup;
+			children = (
+				09F5E54226A47482009E3FFF /* MapView.swift */,
+				09F5E54426A4748F009E3FFF /* MapViewModel.swift */,
+				09F5E54626A48D55009E3FFF /* MapViewModelFactory.swift */,
+			);
+			path = MapView;
 			sourceTree = "<group>";
 		};
 		F1676F8B26A1DC02009F0644 = {
@@ -319,14 +336,17 @@
 				09F5E53726A31342009E3FFF /* MeteoriteListBackgroundView.swift in Sources */,
 				09F5E53126A30670009E3FFF /* MeteoriteListModel.swift in Sources */,
 				097FE1D726A1EE7900E7A423 /* Meteorite.swift in Sources */,
+				09F5E54326A47482009E3FFF /* MapView.swift in Sources */,
 				09F5E53C26A32B0E009E3FFF /* FiltersView.swift in Sources */,
 				097FE1DB26A1FD8200E7A423 /* TextViews.swift in Sources */,
 				09F5E53926A3259C009E3FFF /* Buttons.swift in Sources */,
 				09E1401626A1EB990098EA07 /* MeteoriteList.swift in Sources */,
 				097FE1E126A2064300E7A423 /* MeteoriteCellModel.swift in Sources */,
 				097FE1D326A1EDD800E7A423 /* MeteoriteCell.swift in Sources */,
+				09F5E54526A4748F009E3FFF /* MapViewModel.swift in Sources */,
 				09F5E54026A44C14009E3FFF /* FiltersViewModel.swift in Sources */,
 				097FE1E326A2E5AF00E7A423 /* Constants.swift in Sources */,
+				09F5E54726A48D55009E3FFF /* MapViewModelFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

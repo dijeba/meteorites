@@ -33,6 +33,7 @@ struct SubtitleTextView: View {
     
     let text: String
     let color: Color
+    let textAlignment: TextAlignment
     
     var body: some View {
         Text(text)
@@ -41,12 +42,16 @@ struct SubtitleTextView: View {
             .font(.title2)
             .fontWeight(.black)
             .kerning(Constants.TextView.kerning)
+            .multilineTextAlignment(textAlignment)
     }
     
     init(text: String,
-         color: Color = Color("PrimaryColor", bundle: .module)) {
+         color: Color = Color("PrimaryColor", bundle: .module),
+         textAlignment: TextAlignment = .center) {
+        
         self.text = text
         self.color = color
+        self.textAlignment = textAlignment
     }
 }
 

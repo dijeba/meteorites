@@ -38,4 +38,16 @@ enum Constants {
         static let cornerRadius = CGFloat(21)
         static let strokeWidth = CGFloat(2)
     }
+    
+    enum MapView {
+        static let nearMeTitle = "Meteorites near me"
+        static let defaultCenter: Meteorite.Coordinates = (lat: 40.73, lon: -73.93)
+        static let span = 0.5
+        static let cornerRadius = CGFloat(21)
+        
+        enum Detail {
+            static let height = CGFloat(100)
+            static let padding = CGFloat(30)
+        }
+    }
 }
