@@ -44,4 +44,18 @@ enum PreviewMockGenerator {
             isFavorite: false
         )
     }
+    
+    enum FiltersView {
+        
+        static let model = FiltersViewModel(
+            title: Constants.FiltersView.title,
+            subtitle: Constants.FiltersView.subtitle,
+            maxSizeTitle: Constants.FiltersView.sizeText,
+            _maxSize: 60,
+            maxSizeSliderValue: 50,
+            countrySelectedTitle: Constants.FiltersView.countrySelectedText,
+            countrySelected: "USA",
+            titleApplyButton: Constants.FiltersView.buttonText
+        )
+    }
 }

@@ -37,9 +37,9 @@ struct FavoriteButtonModel {
     
     static func color(isFav: Bool) -> Color {
         if isFav {
-            return Color("AccentColor", bundle: Bundle.module)
+            return Color("AccentColor", bundle: .module)
         } else {
-            return Color("PrimaryColor", bundle: Bundle.module)
+            return Color("PrimaryColor", bundle: .module)
         }
     }
 }

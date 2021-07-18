@@ -15,7 +15,7 @@ struct MeteoriteListBackgroundView: View {
         
         ZStack {
             GeometryReader { geo in
-                Image("meteorite_list_bg", bundle: Bundle.module)
+                Image("meteorite_list_bg", bundle: .module)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .edgesIgnoringSafeArea(.all)
@@ -23,7 +23,7 @@ struct MeteoriteListBackgroundView: View {
                     .opacity(colorScheme == .light ? Constants.MeteoriteListBg.opacityLight : Constants.MeteoriteListBg.opacityDark)
             }
         }
-        .background(Color("SecondaryColor", bundle: Bundle.module))
+        .background(Color("SecondaryColor", bundle: .module))
         .edgesIgnoringSafeArea(.all)
     }
 }

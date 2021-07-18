@@ -19,6 +19,15 @@ enum Constants {
         static let floatingButtonSize = CGFloat(60)
     }
     
+    enum FiltersView {
+        static let title = "Filters"
+        static let subtitle = "Hint: shake your device to clear all the filters"
+        static let sizeText = "Max size:"
+        static let countrySelectedText = "Country selected:"
+        static let buttonText = "Apply"
+        static let buttonCornerRadius = CGFloat(21)
+    }
+    
     enum TextView {
         static let kerning = CGFloat(1.5)
     }

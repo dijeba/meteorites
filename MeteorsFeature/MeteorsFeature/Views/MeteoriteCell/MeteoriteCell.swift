@@ -38,7 +38,7 @@ struct MeteoriteCell: View {
                 cornerRadius: Constants.MeteoriteCell.cornerRadius
             )
             .stroke(
-                Color("PrimaryColor", bundle: Bundle.module),
+                Color("PrimaryColor", bundle: .module),
                 lineWidth: Constants.MeteoriteCell.strokeWidth
             )
             
@@ -47,7 +47,7 @@ struct MeteoriteCell: View {
             RoundedRectangle(
                 cornerRadius: Constants.MeteoriteCell.cornerRadius
             )
-            .fill(Color("SecondaryColor", bundle: Bundle.module))
+            .fill(Color("SecondaryColor", bundle: .module))
         )
         .padding()
         .background(Color.clear)

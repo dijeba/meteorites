@@ -10,9 +10,9 @@ import SwiftUI
 public struct MeteoriteList: View {
     
     @State private var model: MeteoriteListModel
+    @State private var filtersViewIsShowing = false
     
     public var body: some View {
-        
         NavigationView {
             ZStack {
                 List {
@@ -21,12 +21,17 @@ public struct MeteoriteList: View {
                     }
                     .listRowBackground(Color.clear)
                 }
-                
                 VStack {
                     Spacer()
                     HStack {
                         Spacer()
-                        FloatingButton()
+                        FloatingButton {
+                            filtersViewIsShowing = true
+                        }
+                        .sheet(isPresented: $filtersViewIsShowing, content: {
+                            FiltersView(model: model.makeFiltersViewModel(),
+                                        filtersViewIsShowing: $filtersViewIsShowing)
+                        })
                     }
                 }
             }

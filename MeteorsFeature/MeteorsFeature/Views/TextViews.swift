@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// TODO: Move to other place
 extension Bundle {
     
     static var module: Bundle? {
@@ -20,7 +21,7 @@ struct TitleTextView: View {
     
     var body: some View {
         Text(text)
-            .foregroundColor(Color("PrimaryColor", bundle: Bundle.module))
+            .foregroundColor(Color("PrimaryColor", bundle: .module))
             .bold()
             .font(.title)
             .fontWeight(.black)
@@ -31,14 +32,21 @@ struct TitleTextView: View {
 struct SubtitleTextView: View {
     
     let text: String
+    let color: Color
     
     var body: some View {
         Text(text)
-            .foregroundColor(Color("PrimaryColor", bundle: Bundle.module))
+            .foregroundColor(color)
             .bold()
             .font(.title2)
             .fontWeight(.black)
             .kerning(Constants.TextView.kerning)
+    }
+    
+    init(text: String,
+         color: Color = Color("PrimaryColor", bundle: .module)) {
+        self.text = text
+        self.color = color
     }
 }
 
@@ -48,7 +56,7 @@ struct SubtitleThinTextView: View {
     
     var body: some View {
         Text(text)
-            .foregroundColor(Color("PrimaryColor", bundle: Bundle.module))
+            .foregroundColor(Color("PrimaryColor", bundle: .module))
             .font(.title2)
             .fontWeight(.light)
             .kerning(Constants.TextView.kerning)
@@ -61,7 +69,7 @@ struct CaptionTextView: View {
     
     var body: some View {
         Text(text.uppercased())
-            .foregroundColor(Color("PrimaryColor", bundle: Bundle.module))
+            .foregroundColor(Color("PrimaryColor", bundle: .module))
             .font(.caption)
             .kerning(Constants.TextView.kerning)
     }
