@@ -9,13 +9,13 @@ import MapKit
 
 protocol MapViewModelBuildable {
     
-    func build(meteorite: Meteorite) -> MapViewModel
-    func build(userLocation: CLLocationCoordinate2D, meteorites: [Meteorite]) -> MapViewModel
+    func makeModel(meteorite: Meteorite) -> MapModel
+    func makeModel(userLocation: CLLocationCoordinate2D, meteorites: [Meteorite]) -> MapModel
 }
 
 class MapViewModelFactory: MapViewModelBuildable {
     
-    func build(meteorite: Meteorite) -> MapViewModel {
+    func makeModel(meteorite: Meteorite) -> MapModel {
         
         let center = CLLocationCoordinate2D(
             latitude: meteorite.coordinates.lat,
@@ -31,13 +31,13 @@ class MapViewModelFactory: MapViewModelBuildable {
         
         let annotationItem = createAnnotationItem(meteorite)
         
-        return MapViewModel(region: region,
-                            title: meteorite.name,
-                            userTracked: false,
-                            annotationItems: [annotationItem])
+        return MapModel(region: region,
+                        title: meteorite.name,
+                        userTracked: false,
+                        annotationItems: [annotationItem])
     }
     
-    func build(userLocation: CLLocationCoordinate2D, meteorites: [Meteorite]) -> MapViewModel {
+    func makeModel(userLocation: CLLocationCoordinate2D, meteorites: [Meteorite]) -> MapModel {
         
         let span = MKCoordinateSpan(
             latitudeDelta: Constants.MapView.span,
@@ -48,13 +48,13 @@ class MapViewModelFactory: MapViewModelBuildable {
         
         let annotationItems = meteorites.map(createAnnotationItem)
         
-        return MapViewModel(region: region,
-                            title: Constants.MapView.nearMeTitle,
-                            userTracked: true,
-                            annotationItems: annotationItems)
+        return MapModel(region: region,
+                        title: Constants.MapView.nearMeTitle,
+                        userTracked: true,
+                        annotationItems: annotationItems)
     }
     
-    private func createAnnotationItem(_ meteorite: Meteorite) -> MapViewModel.AnnotationItem {
+    private func createAnnotationItem(_ meteorite: Meteorite) -> MapModel.AnnotationItem {
         
         let coordinate = CLLocationCoordinate2D(
             latitude: meteorite.coordinates.lat,

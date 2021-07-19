@@ -9,6 +9,18 @@ import MapKit
 
 enum PreviewMockGenerator {
     
+    enum MeteoriteBusinessModel {
+        
+        static let model = Meteorite(
+            name: "",
+            id: 0,
+            isFavorite: false,
+            mass: 0,
+            date: Date(),
+            coordinates: (lat: 0, lon: 0)
+        )
+    }
+    
     enum MeteoriteList {
         
         static let model = MeteoriteListModel(
@@ -49,12 +61,11 @@ enum PreviewMockGenerator {
     
     enum FiltersView {
         
-        static let model = FiltersViewModel(
+        static let model = FiltersModel(
             title: Constants.FiltersView.title,
             subtitle: Constants.FiltersView.subtitle,
             maxSizeTitle: Constants.FiltersView.sizeText,
-            _maxSize: 60,
-            maxSizeSliderValue: 50,
+            sizeSliderValue: 50,
             countrySelectedTitle: Constants.FiltersView.countrySelectedText,
             countrySelected: "USA",
             titleApplyButton: Constants.FiltersView.buttonText
@@ -63,7 +74,7 @@ enum PreviewMockGenerator {
     
     enum MapView {
         
-        static let nearMeModel = MapViewModel(
+        static let nearMeModel = MapModel(
             region: region,
             title: Constants.MapView.nearMeTitle,
             userTracked: true,
@@ -75,7 +86,7 @@ enum PreviewMockGenerator {
             ]
         )
         
-        static let singleMeteoriteModel = MapViewModel(
+        static let singleMeteoriteModel = MapModel(
             region: region,
             title: "London's Meteorite",
             userTracked: false,

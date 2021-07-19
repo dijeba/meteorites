@@ -23,9 +23,11 @@ enum Constants {
         static let title = "Filters"
         static let subtitle = "Hint: shake your device to clear all the filters"
         static let sizeText = "Max size:"
-        static let countrySelectedText = "Country selected:"
+        static let countrySelectedText = "Filter by country:"
         static let buttonText = "Apply"
         static let buttonCornerRadius = CGFloat(21)
+        static let paddingTopTitle = CGFloat(50)
+        static let paddingBottomSaveButton = CGFloat(40)
     }
     
     enum TextView {

@@ -10,16 +10,20 @@ import MapKit
 
 struct MapView: View {
     
-    let model: MapViewModel
+    let viewModel: MapViewModel
+    
+    init(viewModel: MapViewModel = MapViewModel()) {
+        self.viewModel = viewModel
+    }
     
     var body: some View {
         
         ZStack(alignment: .bottom, content: {
-            Map(coordinateRegion: model.$region,
-                interactionModes: model.interactionModes,
-                showsUserLocation: model.userTracked,
-                userTrackingMode: model.userTrackingMode,
-                annotationItems: model.annotationItems,
+            Map(coordinateRegion: viewModel.data.$region,
+                interactionModes: viewModel.data.interactionModes,
+                showsUserLocation: viewModel.data.userTracked,
+                userTrackingMode: viewModel.data.userTrackingMode,
+                annotationItems: viewModel.data.annotationItems,
                 annotationContent: {
                     MapMarker(
                         coordinate: $0.coordinate,
@@ -28,8 +32,8 @@ struct MapView: View {
                 })
                 .edgesIgnoringSafeArea(.all)
             
-            if !model.userTracked {
-                MapDetailView(title: model.title)
+            if !viewModel.data.userTracked {
+                MapDetailView(title: viewModel.data.title)
             }
         })
     }
@@ -48,7 +52,6 @@ struct MapDetailView: View {
             .fill(Color("AccentColor", bundle: .module))
             .frame(height: Constants.MapView.Detail.height)
             .padding([.leading, .trailing])
-            .blur(radius: 2.0)
             
             SubtitleTextView(text: title,
                              color: Color("Clear", bundle: .module))
@@ -64,10 +67,12 @@ struct MapView_Previews: PreviewProvider {
     
     static var previews: some View {
         
-        MapView(model: PreviewMockGenerator.MapView.singleMeteoriteModel)
+        let mockViewModel = MapViewModel(modelFactory: MockMapModelFactory())
+        
+        MapView(viewModel: mockViewModel)
             .preferredColorScheme(.light)
         
-        MapView(model: PreviewMockGenerator.MapView.singleMeteoriteModel)
+        MapView(viewModel: mockViewModel)
             .preferredColorScheme(.dark)
     }
 }

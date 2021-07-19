@@ -49,6 +49,7 @@ struct MeteoriteCell: View {
             )
             .fill(Color("SecondaryColor", bundle: .module))
         )
+        //.frame(width: 330, height: 150)
         .padding()
         .background(Color.clear)
     }

@@ -9,23 +9,33 @@ import SwiftUI
 
 struct FiltersView: View {
     
-    @State var model: FiltersViewModel
+    @State var viewModel: FiltersViewModel
+    @State private var sliderValue: Double
+    @State var countrySelected: String
     @Binding var filtersViewIsShowing: Bool
     
-    @State var sliderValue = 50.0
+    init(viewModel: FiltersViewModel = FiltersViewModel(),
+         filtersViewIsShowing: Binding<Bool>) {
+        
+        self.viewModel = viewModel
+        self.sliderValue = viewModel.data.sizeSliderValue
+        _countrySelected = .init(initialValue: viewModel.data.countrySelected)
+        _filtersViewIsShowing = filtersViewIsShowing
+    }
     
     var body: some View {
         
         VStack {
-            TitleTextView(text: model.title)
-                .padding()
-            SubtitleThinTextView(text: model.subtitle)
+            TitleTextView(text: viewModel.data.title)
+                .padding(.top, Constants.FiltersView.paddingTopTitle)
+                .padding([.leading, .bottom, .trailing])
+            CaptionTextView(text: viewModel.data.subtitle)
                 .padding()
             VStack {
                 HStack {
-                    SubtitleTextView(text: model.maxSizeTitle)
+                    SubtitleTextView(text: viewModel.data.maxSizeTitle)
                         .padding([.leading, .top, .bottom])
-                    SubtitleTextView(text: model.maxSize)
+                    SubtitleTextView(text: viewModel.data.maxSize)
                         .padding([.top, .bottom, .trailing])
                 }
                 Slider(value: $sliderValue, in: 1.0...100.0)
@@ -33,29 +43,40 @@ struct FiltersView: View {
                     .accentColor(Color("AccentColor", bundle: .module))
             }
             VStack {
-                SubtitleTextView(text: model.countrySelectedTitle)
+                SubtitleTextView(text: viewModel.data.countrySelectedTitle)
                     .padding([.top, .leading, .trailing])
-                SubtitleThinTextView(text: model.countrySelected)
-                    .padding()
+                
+                Picker("Please choose a country", selection: $countrySelected) {
+                    ForEach(viewModel.data.countries, id: \.self) {
+                        Text($0)
+                    }
+                }
             }
+            Spacer()
             ApplyFiltersButton(action: {
-                model.saveFilterValues()
+                viewModel.saveFilterValues(sliderValue: sliderValue,
+                                           countrySelectedTitle: countrySelected)
                 filtersViewIsShowing = false
             })
-            .padding()
+            .padding(Constants.FiltersView.paddingBottomSaveButton)
         }
         .background(Color("SecondaryColor", bundle: .module))
-        //.frame(height: 95, alignment: .top)
+        .edgesIgnoringSafeArea(.all)
     }
 }
 
 struct FiltersView_Previews: PreviewProvider {
+    
     static var previews: some View {
         
-        FiltersView(model: PreviewMockGenerator.FiltersView.model, filtersViewIsShowing: .constant(true))
+        let mockViewModel = FiltersViewModel(modelFactory: MockFiltersModelFactory())
+        
+        FiltersView(viewModel: mockViewModel,
+                    filtersViewIsShowing: .constant(true))
             .preferredColorScheme(.light)
         
-        FiltersView(model: PreviewMockGenerator.FiltersView.model, filtersViewIsShowing: .constant(true))
+        FiltersView(viewModel: mockViewModel,
+                    filtersViewIsShowing: .constant(true))
             .preferredColorScheme(.dark)
     }
 }

@@ -5,22 +5,32 @@
 //  Created by Diego Jerez Barroso on 18/07/2021.
 //
 
-struct FiltersViewModel {
+import Foundation
+
+class FiltersViewModel {
     
-    let title: String
-    let subtitle: String
-    let maxSizeTitle: String
-    let _maxSize: Int
-    let maxSizeSliderValue: Double
-    let countrySelectedTitle: String
-    let countrySelected: String
-    let titleApplyButton: String
+    let modelFactory: FiltersModelBuildable
+    private var _data: FiltersModel?
     
-    var maxSize: String {
-        "> \(_maxSize) Kg"
+    var data: FiltersModel {
+        
+        guard let data = _data else {
+            assertionFailure("Shouldn't be nil")
+            return modelFactory.makeModel(sliderValue: 0, countrySelectedTitle: "")
+        }
+        
+        return data
     }
     
-    func saveFilterValues() {
+    init(modelFactory: FiltersModelBuildable = FilterModelFactory()) {
+        self.modelFactory = modelFactory
+        // data = use manager to retrieve stored filters from db (UserDefaults)
+    }
+    
+    
+    func saveFilterValues(sliderValue: Double, countrySelectedTitle: String) {
         
+        _data = modelFactory.makeModel(sliderValue: sliderValue,
+                                      countrySelectedTitle: countrySelectedTitle)
     }
 }

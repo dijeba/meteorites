@@ -5,31 +5,24 @@
 //  Created by Diego Jerez Barroso on 18/07/2021.
 //
 
-import SwiftUI
-import MapKit
+import Foundation
 
-struct MapViewModel {
+class MapViewModel {
     
-    struct AnnotationItem: Identifiable {
-        let id = UUID()
-        var name: String
-        var coordinate: CLLocationCoordinate2D
+    let modelFactory: MapViewModelBuildable
+    private(set) var _data: MapModel?
+    
+    var data: MapModel {
+        
+        guard let data = _data else {
+            assertionFailure("Shouldn't be nil")
+            return modelFactory.makeModel(meteorite: PreviewMockGenerator.MeteoriteBusinessModel.model)
+        }
+        
+        return data
     }
     
-    @State var region: MKCoordinateRegion
-    let title: String
-    let userTracked: Bool
-    let annotationItems: [AnnotationItem]
-    
-    var interactionModes: MapInteractionModes {
-        userTracked ? .all : .zoom
+    init(modelFactory: MapViewModelBuildable = MapViewModelFactory()) {
+        self.modelFactory = modelFactory
     }
-    
-    var userTrackingMode: Binding<MapUserTrackingMode> {
-        userTracked ? .constant(.follow) : .constant(.none)
-    }
-    
-//    var annotatedItems: RandomAccessCollection {
-//        annotationItems.map{ MapMarker(coordinate: $0.coordinate, tint: Color("AccentColor", bundle: .module)) }
-//    }
 }
