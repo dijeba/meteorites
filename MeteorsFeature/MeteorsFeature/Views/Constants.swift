@@ -52,4 +52,8 @@ enum Constants {
             static let padding = CGFloat(30)
         }
     }
+    
+    enum Database {
+        static let prefix = "db-meteorite"
+    }
 }

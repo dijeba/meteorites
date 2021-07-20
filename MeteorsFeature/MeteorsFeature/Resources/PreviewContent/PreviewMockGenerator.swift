@@ -12,8 +12,8 @@ enum PreviewMockGenerator {
     enum MeteoriteBusinessModel {
         
         static let model = Meteorite(
-            name: "",
             id: 0,
+            name: "",
             isFavorite: false,
             mass: 0,
             date: Date(),

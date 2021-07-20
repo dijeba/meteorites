@@ -9,8 +9,8 @@ struct Meteorite {
     
     typealias Coordinates = (lat: Double, lon: Double)
     
-    let name: String
     let id: Int
+    let name: String
     let isFavorite: Bool
     let mass: Int
     let date: Date
