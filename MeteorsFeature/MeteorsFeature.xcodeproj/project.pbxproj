@@ -22,10 +22,9 @@
 		09C6814E26A5F1BF00E8A49A /* countries.json in Resources */ = {isa = PBXBuildFile; fileRef = 09C6814D26A5F1BF00E8A49A /* countries.json */; };
 		09C94C2326A6CFEE00BAED7D /* MeteoriteRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C94C2226A6CFEE00BAED7D /* MeteoriteRouter.swift */; };
 		09C94C2726A6D12900BAED7D /* APIMeteorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C94C2626A6D12900BAED7D /* APIMeteorite.swift */; };
-		09C94C2A26A6D44F00BAED7D /* MeteoriteApiServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C94C2926A6D44F00BAED7D /* MeteoriteApiServiceTests.swift */; };
 		09C94C2D26A6D47500BAED7D /* get-meteorite-list.json in Resources */ = {isa = PBXBuildFile; fileRef = 09C94C2C26A6D47500BAED7D /* get-meteorite-list.json */; };
 		09C94C3026A6D4C800BAED7D /* MockMeteoriteFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C94C2F26A6D4C800BAED7D /* MockMeteoriteFiles.swift */; };
-		09C94C3226A6D5D200BAED7D /* MockMeteoriteServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C94C3126A6D5D200BAED7D /* MockMeteoriteServices.swift */; };
+		09C94C3226A6D5D200BAED7D /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C94C3126A6D5D200BAED7D /* Mocks.swift */; };
 		09C94C3526A6D6EB00BAED7D /* MeteoriteApiServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C94C3426A6D6EB00BAED7D /* MeteoriteApiServiceProtocol.swift */; };
 		09C94C3726A6D89C00BAED7D /* MeteoriteApiModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C94C3626A6D89C00BAED7D /* MeteoriteApiModelMapper.swift */; };
 		09C94C4726A73BE500BAED7D /* MeteoriteListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C94C4626A73BE500BAED7D /* MeteoriteListManager.swift */; };
@@ -34,6 +33,9 @@
 		09C94C5926A77B7600BAED7D /* DBMeteorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C94C5826A77B7600BAED7D /* DBMeteorite.swift */; };
 		09C94C5B26A77BE000BAED7D /* MeteoriteDbModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C94C5A26A77BE000BAED7D /* MeteoriteDbModelMapper.swift */; };
 		09C94C6726A85ABA00BAED7D /* MeteoriteDbServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C94C6626A85ABA00BAED7D /* MeteoriteDbServiceTests.swift */; };
+		09C94C6A26A86E4800BAED7D /* MeteoriteListManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C94C6926A86E4800BAED7D /* MeteoriteListManagerTests.swift */; };
+		09C94C6D26A87FF800BAED7D /* MeteoriteApiModelMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C94C6C26A87FF800BAED7D /* MeteoriteApiModelMapperTests.swift */; };
+		09C94C6F26A8899300BAED7D /* MeteoriteDbModelMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C94C6E26A8899300BAED7D /* MeteoriteDbModelMapperTests.swift */; };
 		09E1401626A1EB990098EA07 /* MeteoriteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E1401526A1EB990098EA07 /* MeteoriteListView.swift */; };
 		09F5E53126A30670009E3FFF /* MeteoriteListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F5E53026A30670009E3FFF /* MeteoriteListModel.swift */; };
 		09F5E53326A30961009E3FFF /* PreviewMockGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F5E53226A30961009E3FFF /* PreviewMockGenerator.swift */; };
@@ -76,10 +78,9 @@
 		09C6814D26A5F1BF00E8A49A /* countries.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = countries.json; sourceTree = "<group>"; };
 		09C94C2226A6CFEE00BAED7D /* MeteoriteRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeteoriteRouter.swift; sourceTree = "<group>"; };
 		09C94C2626A6D12900BAED7D /* APIMeteorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIMeteorite.swift; sourceTree = "<group>"; };
-		09C94C2926A6D44F00BAED7D /* MeteoriteApiServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeteoriteApiServiceTests.swift; sourceTree = "<group>"; };
 		09C94C2C26A6D47500BAED7D /* get-meteorite-list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "get-meteorite-list.json"; sourceTree = "<group>"; };
 		09C94C2F26A6D4C800BAED7D /* MockMeteoriteFiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMeteoriteFiles.swift; sourceTree = "<group>"; };
-		09C94C3126A6D5D200BAED7D /* MockMeteoriteServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMeteoriteServices.swift; sourceTree = "<group>"; };
+		09C94C3126A6D5D200BAED7D /* Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocks.swift; sourceTree = "<group>"; };
 		09C94C3426A6D6EB00BAED7D /* MeteoriteApiServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeteoriteApiServiceProtocol.swift; sourceTree = "<group>"; };
 		09C94C3626A6D89C00BAED7D /* MeteoriteApiModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeteoriteApiModelMapper.swift; sourceTree = "<group>"; };
 		09C94C4626A73BE500BAED7D /* MeteoriteListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeteoriteListManager.swift; sourceTree = "<group>"; };
@@ -88,6 +89,9 @@
 		09C94C5826A77B7600BAED7D /* DBMeteorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBMeteorite.swift; sourceTree = "<group>"; };
 		09C94C5A26A77BE000BAED7D /* MeteoriteDbModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeteoriteDbModelMapper.swift; sourceTree = "<group>"; };
 		09C94C6626A85ABA00BAED7D /* MeteoriteDbServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeteoriteDbServiceTests.swift; sourceTree = "<group>"; };
+		09C94C6926A86E4800BAED7D /* MeteoriteListManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeteoriteListManagerTests.swift; sourceTree = "<group>"; };
+		09C94C6C26A87FF800BAED7D /* MeteoriteApiModelMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeteoriteApiModelMapperTests.swift; sourceTree = "<group>"; };
+		09C94C6E26A8899300BAED7D /* MeteoriteDbModelMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeteoriteDbModelMapperTests.swift; sourceTree = "<group>"; };
 		09E1401526A1EB990098EA07 /* MeteoriteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeteoriteListView.swift; sourceTree = "<group>"; };
 		09F5E53026A30670009E3FFF /* MeteoriteListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeteoriteListModel.swift; sourceTree = "<group>"; };
 		09F5E53226A30961009E3FFF /* PreviewMockGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewMockGenerator.swift; sourceTree = "<group>"; };
@@ -192,9 +196,8 @@
 		09C94C2826A6D42600BAED7D /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				09C94C2926A6D44F00BAED7D /* MeteoriteApiServiceTests.swift */,
-				09C94C2B26A6D45B00BAED7D /* Stubs */,
 				09C94C6626A85ABA00BAED7D /* MeteoriteDbServiceTests.swift */,
+				09C94C2B26A6D45B00BAED7D /* Stubs */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -211,7 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				09C94C2F26A6D4C800BAED7D /* MockMeteoriteFiles.swift */,
-				09C94C3126A6D5D200BAED7D /* MockMeteoriteServices.swift */,
+				09C94C3126A6D5D200BAED7D /* Mocks.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -237,9 +240,28 @@
 		09C94C6526A8584B00BAED7D /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				09C94C6B26A87FE200BAED7D /* Meteorite */,
+				09C94C6826A86E2E00BAED7D /* Manager */,
 				09C94C2826A6D42600BAED7D /* Service */,
 			);
 			path = Business;
+			sourceTree = "<group>";
+		};
+		09C94C6826A86E2E00BAED7D /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				09C94C6926A86E4800BAED7D /* MeteoriteListManagerTests.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		09C94C6B26A87FE200BAED7D /* Meteorite */ = {
+			isa = PBXGroup;
+			children = (
+				09C94C6C26A87FF800BAED7D /* MeteoriteApiModelMapperTests.swift */,
+				09C94C6E26A8899300BAED7D /* MeteoriteDbModelMapperTests.swift */,
+			);
+			path = Meteorite;
 			sourceTree = "<group>";
 		};
 		09E1401226A1EA6F0098EA07 /* Business */ = {
@@ -506,10 +528,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09C94C2A26A6D44F00BAED7D /* MeteoriteApiServiceTests.swift in Sources */,
+				09C94C6A26A86E4800BAED7D /* MeteoriteListManagerTests.swift in Sources */,
 				09C94C6726A85ABA00BAED7D /* MeteoriteDbServiceTests.swift in Sources */,
 				F1676FA426A1DC03009F0644 /* MeteorsFeatureTests.swift in Sources */,
-				09C94C3226A6D5D200BAED7D /* MockMeteoriteServices.swift in Sources */,
+				09C94C3226A6D5D200BAED7D /* Mocks.swift in Sources */,
+				09C94C6D26A87FF800BAED7D /* MeteoriteApiModelMapperTests.swift in Sources */,
+				09C94C6F26A8899300BAED7D /* MeteoriteDbModelMapperTests.swift in Sources */,
 				09C94C3026A6D4C800BAED7D /* MockMeteoriteFiles.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

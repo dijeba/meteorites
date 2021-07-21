@@ -80,37 +80,3 @@ class MeteoriteDbServiceTests: XCTestCase {
         return userDefaults.dictionaryRepresentation().keys.filter { $0 == expectedKey }.count == 1
     }
 }
-
-private class SpyDbService: MeteoriteDbServiceProtocol {
-    
-    private(set) var meteoriteDate = Date(timeIntervalSince1970: 0)
-    private(set) var objectWasSaved = false
-    private(set) var objectWasDeleted = false
-    
-    func loadObjects() -> [Meteorite] {
-        
-        let m1 = getSavedMockedMeteorite(id: 1)
-        let m2 = getSavedMockedMeteorite(id: 2)
-        
-        return [
-            m1, m2
-        ]
-    }
-    
-    func save(_ object: Meteorite) {
-        objectWasSaved = true
-    }
-    
-    func delete(_ object: Meteorite) {
-        objectWasDeleted = true
-    }
-    
-    func getSavedMockedMeteorite(id: Int) -> Meteorite {
-        Meteorite(id: id,
-                  name: "M\(id)",
-                  isFavorite: true,
-                  mass: 1,
-                  date: meteoriteDate,
-                  coordinates: (lat: 1, lon: 1))
-    }
-}

@@ -21,8 +21,15 @@ protocol MeteoriteListManagerProtocol {
 
 class MeteoriteListManager: MeteoriteListManagerProtocol {
     
-    let apiService: MeteoriteApiServiceProtocol = MeteoriteApiService()
-    let dbService: MeteoriteDbServiceProtocol = MeteoriteDbService()
+    let apiService: MeteoriteApiServiceProtocol
+    let dbService: MeteoriteDbServiceProtocol
+    
+    init(apiService: MeteoriteApiServiceProtocol = MeteoriteApiService(),
+         dbService: MeteoriteDbServiceProtocol = MeteoriteDbService()) {
+        
+        self.apiService = apiService
+        self.dbService = dbService
+    }
     
     // MARK:- Networking
     

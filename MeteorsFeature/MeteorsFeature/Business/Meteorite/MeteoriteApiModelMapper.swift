@@ -17,22 +17,37 @@ class MeteoriteApiModelMapper {
         
         let id = Int(apiMeteorite.id) ?? 0
         let isFavorite = false // TODO: UserDefaults...
-        let mass = Int(apiMeteorite.mass) ?? 0
+        let mass = Int(apiMeteorite.mass ?? "")
         let date = formatDate(apiMeteorite.year)
-        let coordinate: Meteorite.Coordinates = (lat: apiMeteorite.geolocation.coordinates[0],
-                                                 lon: apiMeteorite.geolocation.coordinates[1])
+        
+        var coordinate: Meteorite.Coordinates {
+            
+            guard let latitude = apiMeteorite.geolocation?.coordinates?[0],
+                  let longitude = apiMeteorite.geolocation?.coordinates?[1] else {
+                
+                return Constants.MeteoriteList.noLocationFallback
+            }
+            
+            return (lat: latitude, lon: longitude)
+        }
         
         return Meteorite(id: id,
-                         name: apiMeteorite.name,
+                         name: apiMeteorite.name ?? Constants.MeteoriteList.noDataFallback,
                          isFavorite: isFavorite,
-                         mass: mass,
+                         mass: mass ?? 0,
                          date: date,
                          coordinates: coordinate)
     }
     
-    private static func formatDate(_ dateString: String) -> Date {
+    private static func formatDate(_ dateString: String?) -> Date {
         
-        let formatter = ISO8601DateFormatter()
-        return formatter.date(from: dateString) ?? Date(timeIntervalSince1970: 0)
+        guard let dateString = dateString else {
+            return Constants.MeteoriteList.noDateFallback
+        }
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-dd-MM'T'HH:mm:ss.SSSS"
+        
+        return formatter.date(from: dateString) ?? Constants.MeteoriteList.noDateFallback
     }
 }

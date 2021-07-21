@@ -14,11 +14,15 @@ enum MockMeteoriteFiles {
     
     func getData() throws -> Data {
         
-        guard let url = Bundle.module?.url(forResource: fileName, withExtension: "json") else {
+        guard let url = bundle.url(forResource: fileName, withExtension: "json") else {
             throw NSError(domain: "meteorsFeature", code: 1, userInfo: [:])
         }
         
         return try Data(contentsOf: url)
+    }
+    
+    private var bundle: Bundle {
+        Bundle(for: MockMeteoriteApiService.self)
     }
     
     private var fileName: String {
