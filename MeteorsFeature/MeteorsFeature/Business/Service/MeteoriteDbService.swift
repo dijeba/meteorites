@@ -35,7 +35,7 @@ class MeteoriteDbService: MeteoriteDbServiceProtocol {
     
     func save(_ object: Meteorite) {
         
-        let key = "\(Constants.Database.prefix) + \(object.id)"
+        let key = "\(Constants.Database.prefix)" + "\(object.id)"
         
         let dataModel = MeteoriteDbModelMapper.map(object)
         let encodedData = JSONSerializer.encode(dataModel)
@@ -45,7 +45,7 @@ class MeteoriteDbService: MeteoriteDbServiceProtocol {
     
     func delete(_ object: Meteorite) {
         
-        let key = "\(Constants.Database.prefix) + \(object.id)"
+        let key = "\(Constants.Database.prefix)" + "\(object.id)"
         database.removeObject(forKey: key)
     }
 }

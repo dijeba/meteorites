@@ -7,7 +7,6 @@
 
 import Networking
 
-// TODO: Move to Swift Package
 typealias ServiceResult<T> = Result<T, Error>
 
 protocol MeteoriteApiServiceProtocol {
