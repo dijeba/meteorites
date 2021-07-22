@@ -11,7 +11,7 @@ struct Meteorite {
     
     let id: Int
     let name: String
-    let isFavorite: Bool
+    var isFavorite: Bool
     let mass: Int
     let date: Date
     let coordinates: Coordinates

@@ -24,7 +24,7 @@ class FiltersViewModel {
     
     init(modelFactory: FiltersModelBuildable = FilterModelFactory()) {
         self.modelFactory = modelFactory
-        // data = use manager to retrieve stored filters from db (UserDefaults)
+        // TODO: data = use manager to retrieve stored filters from db (UserDefaults)
     }
     
     

@@ -9,7 +9,11 @@ import MapKit
 
 class MockMeteoriteModelFactory: MeteoriteListModelBuildable {
     
-    func makeModel() -> MeteoriteListModel {
+    func makeDefaultModel() -> MeteoriteListModel {
+        return PreviewMockGenerator.MeteoriteList.model
+    }
+    
+    func makeModel(_ meteorites: [Meteorite]) -> MeteoriteListModel {
         return PreviewMockGenerator.MeteoriteList.model
     }
 }

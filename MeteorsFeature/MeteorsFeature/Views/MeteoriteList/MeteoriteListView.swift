@@ -6,10 +6,11 @@
 //
 
 import SwiftUI
+import Combine
 
 public struct MeteoriteListView: View {
     
-    @State private var viewModel: MeteoriteListViewModel
+    @ObservedObject private var viewModel: MeteoriteListViewModel
     @State private var filtersViewIsShowing = false
     
     init(viewModel: MeteoriteListViewModel = MeteoriteListViewModel()) {

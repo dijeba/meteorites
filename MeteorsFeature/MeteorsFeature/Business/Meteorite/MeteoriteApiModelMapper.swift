@@ -16,7 +16,6 @@ class MeteoriteApiModelMapper {
     private static func mapApiMeteorite(_ apiMeteorite: APIMeteorite) -> Meteorite {
         
         let id = Int(apiMeteorite.id) ?? 0
-        let isFavorite = false // TODO: UserDefaults...
         let mass = Int(apiMeteorite.mass ?? "")
         let date = formatDate(apiMeteorite.year)
         
@@ -33,7 +32,7 @@ class MeteoriteApiModelMapper {
         
         return Meteorite(id: id,
                          name: apiMeteorite.name ?? Constants.MeteoriteList.noDataFallback,
-                         isFavorite: isFavorite,
+                         isFavorite: false,
                          mass: mass ?? 0,
                          date: date,
                          coordinates: coordinate)

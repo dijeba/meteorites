@@ -59,4 +59,8 @@ enum Constants {
     enum Database {
         static let prefix = "db-meteorite"
     }
+    
+    enum Network {
+        static let token = "mb03SrMQidJqCg3G5hKPl5U59"
+    }
 }

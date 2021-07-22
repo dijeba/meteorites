@@ -6,14 +6,23 @@
 //
 
 import SwiftUI
+import Combine
 import MapKit
 
 struct MapView: View {
     
-    let viewModel: MapViewModel
+    @ObservedObject private var viewModel: MapViewModel
     
-    init(viewModel: MapViewModel = MapViewModel()) {
-        self.viewModel = viewModel
+    init(meteorite: Meteorite) {
+        self.viewModel = MapViewModel(meteorite: meteorite)
+    }
+    
+    init(meteorites: [Meteorite]) {
+        
+        // TODO: get user's location
+        
+        self.viewModel = MapViewModel(userLocation: .init(latitude: 1, longitude: 1),
+                                      meteorites: meteorites)
     }
     
     var body: some View {

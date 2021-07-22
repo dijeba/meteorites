@@ -6,23 +6,23 @@
 //
 
 import Foundation
+import Combine
+import MapKit
 
-class MapViewModel {
+class MapViewModel: ObservableObject {
     
-    let modelFactory: MapViewModelBuildable
-    private(set) var _data: MapModel?
+    @Published var data: MapModel
     
-    var data: MapModel {
+    init(userLocation: CLLocationCoordinate2D,
+         meteorites: [Meteorite],
+         modelFactory: MapViewModelBuildable = MapViewModelFactory()) {
         
-        guard let data = _data else {
-            assertionFailure("Shouldn't be nil")
-            return modelFactory.makeModel(meteorite: PreviewMockGenerator.MeteoriteBusinessModel.model)
-        }
-        
-        return data
+        self.data = modelFactory.makeModel(userLocation: userLocation, meteorites: meteorites)
     }
     
-    init(modelFactory: MapViewModelBuildable = MapViewModelFactory()) {
-        self.modelFactory = modelFactory
+    init(meteorite: Meteorite,
+         modelFactory: MapViewModelBuildable = MapViewModelFactory()) {
+        
+        self.data = modelFactory.makeModel(meteorite: meteorite)
     }
 }

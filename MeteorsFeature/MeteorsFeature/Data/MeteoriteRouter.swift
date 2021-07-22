@@ -36,6 +36,6 @@ enum MeteoriteRouter: EndpointRouter {
     }
     
     var httpHeaders: [String : String]? {
-        nil
+        ["X-App-Token": Constants.Network.token]
     }
 }
