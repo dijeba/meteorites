@@ -10,6 +10,12 @@ import MeteorsFeature
 
 struct TabBarView: View {
     
+    let meteoriteListContainer: MeteorsFeatureContainerView
+//    let mapViewContainer: MeteorsFeatureContainerView
+    let favoriteMeteoritesContainer: MeteorsFeatureContainerView
+    
+    @State var meteorites = meteorsFeature.meteorites
+    
 //    init() {
 //        UITabBar.appearance().barTintColor = .white
 //        UITabBar.appearance().unselectedItemTintColor = UIColor(named: "ClearBackground")
@@ -17,39 +23,37 @@ struct TabBarView: View {
     
     var body: some View {
         TabView {
-            MeteoriteList()
+            meteoriteListContainer
                 .tabItem {
                     Image(systemName: "list.star")
                     Text("Meteorites")
                 }
             
-            Text("Tab 2")
-                .font(.system(size: 30, weight: .bold, design: .rounded))
-                .tabItem {
-                    Image(systemName: "figure.walk")
-                    Text("Near me")
-                }
+//            meteorsFeature.show(.mapView(meteorites: meteorites))
+//                .tabItem {
+//                    Image(systemName: "figure.walk")
+//                    Text("Near me")
+//                }
             
-            Text("Tab 3")
-                .font(.system(size: 30, weight: .bold, design: .rounded))
+            favoriteMeteoritesContainer
                 .tabItem {
                     Image(systemName: "heart.fill")
                     Text("Favorites")
                 }
         }
-        .accentColor(Color("AccentColor"))
-        
+        .accentColor(Color("AccentColor"))   
     }
 }
 
-struct TabBarView_Previews: PreviewProvider {
-    
-    static var previews: some View {
-        
-        TabBarView()
-            .preferredColorScheme(.light)
-        
-        TabBarView()
-            .preferredColorScheme(.dark)
-    }
-}
+// TODO
+//struct TabBarView_Previews: PreviewProvider {
+//
+//    static var previews: some View {
+//
+//        TabBarView()
+//            .preferredColorScheme(.light)
+//
+//        TabBarView()
+//            .preferredColorScheme(.dark)
+//    }
+//}

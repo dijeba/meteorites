@@ -6,19 +6,21 @@
 //
 
 import SwiftUI
+import Combine
 
 struct FiltersView: View {
     
-    @State var viewModel: FiltersViewModel
-    @State private var sliderValue: Double
+    @State var viewModel: FiltersViewModel = FiltersViewModel()
+    @State private var sliderValue: Double = 1
     @State var countrySelected: String
     @Binding var filtersViewIsShowing: Bool
     
     init(viewModel: FiltersViewModel = FiltersViewModel(),
          filtersViewIsShowing: Binding<Bool>) {
         
-        self.viewModel = viewModel
-        self.sliderValue = viewModel.data.sizeSliderValue
+        // TODO
+//        self.viewModel = viewModel
+//        self.sliderValue = viewModel.data.sizeSliderValue
         _countrySelected = .init(initialValue: viewModel.data.countrySelected)
         _filtersViewIsShowing = filtersViewIsShowing
     }

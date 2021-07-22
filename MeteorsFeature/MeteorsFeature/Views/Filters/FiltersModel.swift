@@ -18,7 +18,7 @@ struct FiltersModel {
     let titleApplyButton: String
     
     var maxSize: String {
-        "> \(sizeSliderValue.rounded()) Kg"
+        "> \(sizeSliderValue.rounded()) g"
     }
     
     var countries: [String] {

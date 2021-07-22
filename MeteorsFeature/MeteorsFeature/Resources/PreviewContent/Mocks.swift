@@ -8,12 +8,12 @@
 import MapKit
 
 class MockMeteoriteModelFactory: MeteoriteListModelBuildable {
-    
-    func makeDefaultModel() -> MeteoriteListModel {
+
+    func makeDefaultModel(isFavoriteScreen: Bool) -> MeteoriteListModel {
         return PreviewMockGenerator.MeteoriteList.model
     }
     
-    func makeModel(_ meteorites: [Meteorite]) -> MeteoriteListModel {
+    func makeModel(meteorites: [Meteorite], isFavoriteScreen: Bool) -> MeteoriteListModel {
         return PreviewMockGenerator.MeteoriteList.model
     }
 }

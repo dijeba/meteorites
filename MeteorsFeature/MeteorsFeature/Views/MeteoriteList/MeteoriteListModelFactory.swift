@@ -9,23 +9,26 @@ import Foundation
 
 protocol MeteoriteListModelBuildable {
     
-    func makeDefaultModel() -> MeteoriteListModel
-    func makeModel(_ meteorites: [Meteorite]) -> MeteoriteListModel
+    func makeDefaultModel(isFavoriteScreen: Bool) -> MeteoriteListModel
+    func makeModel(meteorites: [Meteorite], isFavoriteScreen: Bool) -> MeteoriteListModel
 }
 
 struct MeteoriteListModelFactory: MeteoriteListModelBuildable {
     
-    func makeDefaultModel() -> MeteoriteListModel {
+    func makeDefaultModel(isFavoriteScreen: Bool) -> MeteoriteListModel {
         
-        return MeteoriteListModel(title: Constants.MeteoriteList.title,
+        let title = isFavoriteScreen ? Constants.MeteoriteList.titleFavorites : Constants.MeteoriteList.title
+        
+        return MeteoriteListModel(title: title,
                                   cells: [])
     }
     
-    func makeModel(_ meteorites: [Meteorite]) -> MeteoriteListModel {
+    func makeModel(meteorites: [Meteorite], isFavoriteScreen: Bool) -> MeteoriteListModel {
         
+        let title = isFavoriteScreen ? Constants.MeteoriteList.titleFavorites : Constants.MeteoriteList.title
         let cells = meteorites.map(createMeteoriteCellModel)
         
-        return MeteoriteListModel(title: Constants.MeteoriteList.title,
+        return MeteoriteListModel(title: title,
                                   cells: cells)
     }
     
@@ -33,7 +36,8 @@ struct MeteoriteListModelFactory: MeteoriteListModelBuildable {
         
         let massString = String(meteorite.mass)
         
-        return MeteoriteCellModel(name: meteorite.name,
+        return MeteoriteCellModel(modelId: meteorite.id,
+                                  name: meteorite.name,
                                   year: meteorite.date.yearToString(),
                                   yearTitle: Constants.MeteoriteCell.yearTitle,
                                   _mass: massString,

@@ -11,6 +11,7 @@ enum Constants {
     
     enum MeteoriteList {
         static let title = "Meteorites"
+        static let titleFavorites = "Favorites"
         static let noLocationFallback = Meteorite.Coordinates(lat: 0, lon: 0)
         static let noDataFallback = "No data"
         static let noDateFallback = Date(timeIntervalSince1970: 946684800) // 2000-01-01T00:00:00.000
@@ -47,20 +48,17 @@ enum Constants {
     enum MapView {
         static let nearMeTitle = "Meteorites near me"
         static let defaultCenter: Meteorite.Coordinates = (lat: 40.73, lon: -73.93)
-        static let span = 0.5
+        static let span: Double = 14
         static let cornerRadius = CGFloat(21)
         
         enum Detail {
             static let height = CGFloat(100)
             static let padding = CGFloat(30)
+            static let paddingBottom = CGFloat(40)
         }
     }
     
     enum Database {
         static let prefix = "db-meteorite"
-    }
-    
-    enum Network {
-        static let token = "mb03SrMQidJqCg3G5hKPl5U59"
     }
 }

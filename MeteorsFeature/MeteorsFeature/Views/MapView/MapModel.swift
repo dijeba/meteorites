@@ -16,13 +16,13 @@ struct MapModel {
         var coordinate: CLLocationCoordinate2D
     }
     
-    @State var region: MKCoordinateRegion
+    let region: MKCoordinateRegion
     let title: String
     let userTracked: Bool
     let annotationItems: [AnnotationItem]
     
     var interactionModes: MapInteractionModes {
-        userTracked ? .all : .zoom
+        .all
     }
     
     var userTrackingMode: Binding<MapUserTrackingMode> {

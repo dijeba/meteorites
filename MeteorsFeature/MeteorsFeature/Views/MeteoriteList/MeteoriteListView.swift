@@ -8,42 +8,57 @@
 import SwiftUI
 import Combine
 
-public struct MeteoriteListView: View {
+struct MeteoriteListView: View {
     
     @ObservedObject private var viewModel: MeteoriteListViewModel
     @State private var filtersViewIsShowing = false
     
-    init(viewModel: MeteoriteListViewModel = MeteoriteListViewModel()) {
-        self.viewModel = viewModel
+    private let isFavoriteScreen: Bool
+    
+    init(isFavoriteScreen: Bool, modelFactory: MeteoriteListModelBuildable = MeteoriteListModelFactory()) {
+        
+        self.viewModel = MeteoriteListViewModel(isFavoriteScreen: isFavoriteScreen,
+                                                modelFactory: modelFactory)
+        
+        self.isFavoriteScreen = isFavoriteScreen
         
         UITableView.appearance().backgroundColor = .clear
         UITableViewCell.appearance().backgroundColor = .clear
     }
     
-    public var body: some View {
+    var body: some View {
         NavigationView {
             ZStack {
                 List {
                     ForEach(viewModel.data.cells) { cellModel in
-                        MeteoriteCell(model: cellModel)
+                        
+                        NavigationLink(
+                            destination: MapView(meteorite: viewModel.getMeteorite(id: cellModel.modelId)),
+                            label: {
+                                
+                                MeteoriteCell(model: cellModel)
+                            })
                     }
                     .listRowBackground(Color.clear)
                 }
-                VStack {
-                    Spacer()
-                    HStack {
+                
+                if !isFavoriteScreen {
+                    VStack {
                         Spacer()
-                        FloatingButton {
-                            filtersViewIsShowing = true
+                        HStack {
+                            Spacer()
+                            FloatingButton {
+                                filtersViewIsShowing = true
+                            }
+                            .sheet(isPresented: $filtersViewIsShowing, content: {
+                                FiltersView(filtersViewIsShowing: $filtersViewIsShowing)
+                            })
                         }
-                        .sheet(isPresented: $filtersViewIsShowing, content: {
-                            FiltersView(filtersViewIsShowing: $filtersViewIsShowing)
-                        })
                     }
                 }
             }
             .background(MeteoriteListBackgroundView())
-            .navigationTitle(Constants.MeteoriteList.title)
+            .navigationTitle(viewModel.data.title)
         }
     }
 }
@@ -52,12 +67,10 @@ struct MeteoriteList_Previews: PreviewProvider {
     
     static var previews: some View {
         
-        let mockViewModel = MeteoriteListViewModel(modelFactory: MockMeteoriteModelFactory())
-        
-        MeteoriteListView(viewModel: mockViewModel)
+        MeteoriteListView(isFavoriteScreen: false, modelFactory: MockMeteoriteModelFactory())
             .preferredColorScheme(.light)
         
-        MeteoriteListView(viewModel: mockViewModel)
+        MeteoriteListView(isFavoriteScreen: false, modelFactory: MockMeteoriteModelFactory())
             .preferredColorScheme(.dark)
     }
 }

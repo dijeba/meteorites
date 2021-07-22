@@ -41,6 +41,7 @@ enum PreviewMockGenerator {
     enum MeteoriteCell {
         
         static let Fav = MeteoriteCellModel(
+            modelId: 1,
             name: "A Meteorite",
             year: "1985",
             yearTitle: Constants.MeteoriteCell.yearTitle,
@@ -50,6 +51,7 @@ enum PreviewMockGenerator {
         )
         
         static let NotFav = MeteoriteCellModel(
+            modelId: 1,
             name: "A Meteorite with a very long long name",
             year: "1985",
             yearTitle: Constants.MeteoriteCell.yearTitle,

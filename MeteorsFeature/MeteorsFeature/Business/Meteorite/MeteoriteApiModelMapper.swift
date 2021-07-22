@@ -21,8 +21,8 @@ class MeteoriteApiModelMapper {
         
         var coordinate: Meteorite.Coordinates {
             
-            guard let latitude = apiMeteorite.geolocation?.coordinates?[0],
-                  let longitude = apiMeteorite.geolocation?.coordinates?[1] else {
+            guard let latitude = apiMeteorite.geolocation?.coordinates?[1],
+                  let longitude = apiMeteorite.geolocation?.coordinates?[0] else {
                 
                 return Constants.MeteoriteList.noLocationFallback
             }

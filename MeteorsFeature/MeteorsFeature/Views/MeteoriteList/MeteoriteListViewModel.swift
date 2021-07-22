@@ -15,14 +15,19 @@ class MeteoriteListViewModel: ObservableObject {
     private let modelFactory: MeteoriteListModelBuildable
     private let manager: MeteoriteListManagerProtocol
     
-    init(modelFactory: MeteoriteListModelBuildable = MeteoriteListModelFactory(),
+    init(isFavoriteScreen: Bool,
+         modelFactory: MeteoriteListModelBuildable = MeteoriteListModelFactory(),
          manager: MeteoriteListManagerProtocol = MeteoriteListManager()) {
         
         self.modelFactory = modelFactory
         self.manager = manager
-        self.data = modelFactory.makeDefaultModel()
+        self.data = modelFactory.makeDefaultModel(isFavoriteScreen: isFavoriteScreen)
         
-        setup()
+        setup(isFavoriteScreen: isFavoriteScreen)
+    }
+    
+    func getMeteorite(id: Int) -> Meteorite {
+        meteorsFeature.meteorites.first { $0.id == id } ?? PreviewMockGenerator.MeteoriteBusinessModel.model
     }
 }
 
@@ -30,7 +35,26 @@ class MeteoriteListViewModel: ObservableObject {
 
 extension MeteoriteListViewModel {
     
-    private func setup() {
+    private func setup(isFavoriteScreen: Bool) {
+        
+        if isFavoriteScreen {
+            getFavorites()
+        } else {
+            downloadMeteorites()
+        }
+    }
+    
+    private func getFavorites() {
+        
+        let favs = manager.getFavorites()
+        data = modelFactory.makeModel(meteorites: favs, isFavoriteScreen: true)
+    }
+    
+    private func downloadMeteorites() {
+        
+        guard meteorsFeature.meteorites.isEmpty else {
+            return
+        }
         
         manager.fetchMeteorites { [weak self] result in
             
@@ -40,8 +64,18 @@ extension MeteoriteListViewModel {
             
             switch result {
             case .success(let meteorites):
-                let processedMeteorites = self.processFavorites(meteorites: meteorites, favorites: self.manager.getFavorites())
-                self.data = self.modelFactory.makeModel(processedMeteorites)
+                
+                let processedMeteorites = self.processFavorites(meteorites: meteorites,
+                                                                favorites: self.manager.getFavorites())
+                
+                meteorsFeature.meteorites = processedMeteorites
+                
+                DispatchQueue.main.async {
+                    self.data = self.modelFactory.makeModel(meteorites: processedMeteorites,
+                                                            isFavoriteScreen: false)
+                }
+                
+                
             case .failure(let error):
                 print(error)
             }
@@ -52,6 +86,10 @@ extension MeteoriteListViewModel {
                                   favorites: [Meteorite]) -> [Meteorite] {
         
         let idFavorites = favorites.map { $0.id }
+        
+        guard idFavorites.count > 0 else {
+            return meteorites
+        }
         
         return favorites.map { m -> Meteorite in
             

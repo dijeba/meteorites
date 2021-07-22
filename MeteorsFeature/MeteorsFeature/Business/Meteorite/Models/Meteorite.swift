@@ -5,7 +5,7 @@
 //  Created by Diego Jerez Barroso on 16/07/2021.
 //
 
-struct Meteorite {
+public struct Meteorite {
     
     typealias Coordinates = (lat: Double, lon: Double)
     

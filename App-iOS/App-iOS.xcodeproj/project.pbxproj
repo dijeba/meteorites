@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		09E1401826A1ECA90098EA07 /* MeteorsFeature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09E1401726A1ECA90098EA07 /* MeteorsFeature.framework */; };
 		09E1401926A1ECA90098EA07 /* MeteorsFeature.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 09E1401726A1ECA90098EA07 /* MeteorsFeature.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F18BB92026A9D89D00261D06 /* MeteorsFeatureService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18BB91F26A9D89D00261D06 /* MeteorsFeatureService.swift */; };
 		F1E78484269F81A40032DCB9 /* App_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E78483269F81A40032DCB9 /* App_iOSApp.swift */; };
 		F1E78486269F81A40032DCB9 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E78485269F81A40032DCB9 /* TabBarView.swift */; };
 		F1E78488269F81AE0032DCB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1E78487269F81AE0032DCB9 /* Assets.xcassets */; };
@@ -50,6 +51,7 @@
 
 /* Begin PBXFileReference section */
 		09E1401726A1ECA90098EA07 /* MeteorsFeature.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MeteorsFeature.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F18BB91F26A9D89D00261D06 /* MeteorsFeatureService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeteorsFeatureService.swift; sourceTree = "<group>"; };
 		F1E78480269F81A40032DCB9 /* App-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "App-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1E78483269F81A40032DCB9 /* App_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App_iOSApp.swift; sourceTree = "<group>"; };
 		F1E78485269F81A40032DCB9 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 		F1676FC926A1DD68009F0644 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				F18BB91F26A9D89D00261D06 /* MeteorsFeatureService.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F18BB92026A9D89D00261D06 /* MeteorsFeatureService.swift in Sources */,
 				F1E78486269F81A40032DCB9 /* TabBarView.swift in Sources */,
 				F1E78484269F81A40032DCB9 /* App_iOSApp.swift in Sources */,
 			);

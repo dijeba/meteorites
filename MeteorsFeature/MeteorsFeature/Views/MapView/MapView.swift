@@ -11,29 +11,40 @@ import MapKit
 
 struct MapView: View {
     
-    @ObservedObject private var viewModel: MapViewModel
+    private var viewModel: MapViewModel
+    @State private var region: MKCoordinateRegion
     
-    init(meteorite: Meteorite) {
-        self.viewModel = MapViewModel(meteorite: meteorite)
+//    @State var meteorites: [Meteorite] = MeteorsFeature.meteorites {
+//        didSet {
+//            viewModel = MapViewModel(meteorites: meteorites)
+//        }
+//    }
+    
+    init(meteorite: Meteorite, modelFactory: MapViewModelBuildable = MapViewModelFactory()) {
+        self.viewModel = MapViewModel(meteorite: meteorite, modelFactory: modelFactory)
+        self.region = viewModel.data.region
     }
     
-    init(meteorites: [Meteorite]) {
-        
-        // TODO: get user's location
-        
-        self.viewModel = MapViewModel(userLocation: .init(latitude: 1, longitude: 1),
-                                      meteorites: meteorites)
-    }
+//    init(meteorites: [Meteorite]) {
+//
+//        // TODO: get user's location
+//        self.meteorites = meteorites
+//
+//        self.viewModel = MapViewModel(userLocation: .init(latitude: 1, longitude: 1),
+//                                      meteorites: meteorites)
+//    }
     
     var body: some View {
         
         ZStack(alignment: .bottom, content: {
-            Map(coordinateRegion: viewModel.data.$region,
+            
+            Map(coordinateRegion: $region,
                 interactionModes: viewModel.data.interactionModes,
                 showsUserLocation: viewModel.data.userTracked,
                 userTrackingMode: viewModel.data.userTrackingMode,
                 annotationItems: viewModel.data.annotationItems,
                 annotationContent: {
+                    
                     MapMarker(
                         coordinate: $0.coordinate,
                         tint: Color("AccentColor", bundle: .module)
@@ -66,22 +77,24 @@ struct MapDetailView: View {
                              color: Color("Clear", bundle: .module))
                 .padding(.leading, Constants.MapView.Detail.padding)
         })
+        .padding(.bottom, Constants.MapView.Detail.paddingBottom)
         .shadow(radius: 10, x: 5, y: 5)
         
         
     }
 }
 
+// TODO
 struct MapView_Previews: PreviewProvider {
-    
+
     static var previews: some View {
-        
-        let mockViewModel = MapViewModel(modelFactory: MockMapModelFactory())
-        
-        MapView(viewModel: mockViewModel)
+
+        MapView(meteorite: PreviewMockGenerator.MeteoriteBusinessModel.model,
+                modelFactory: MockMapModelFactory())
             .preferredColorScheme(.light)
-        
-        MapView(viewModel: mockViewModel)
+
+        MapView(meteorite: PreviewMockGenerator.MeteoriteBusinessModel.model,
+                modelFactory: MockMapModelFactory())
             .preferredColorScheme(.dark)
     }
 }

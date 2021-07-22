@@ -7,14 +7,6 @@
 
 import SwiftUI
 
-// TODO: Move to other place
-extension Bundle {
-    
-    static var module: Bundle? {
-        Bundle(identifier: "diego.MeteorsFeature")
-    }
-}
-
 struct TitleTextView: View {
     
     let text: String

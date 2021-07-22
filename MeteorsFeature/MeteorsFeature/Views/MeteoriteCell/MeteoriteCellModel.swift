@@ -11,6 +11,7 @@ struct MeteoriteCellModel: Identifiable {
     
     let id = UUID()
     
+    let modelId: Int
     let name: String
     let year: String
     let yearTitle: String
@@ -19,7 +20,7 @@ struct MeteoriteCellModel: Identifiable {
     let isFavorite: Bool
     
     var mass: String {
-        _mass + "Kg"
+        _mass + "g"
     }
 }
 

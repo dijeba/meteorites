@@ -6,13 +6,18 @@
 //
 
 import SwiftUI
+import MeteorsFeature
 
 @main
 struct App_iOSApp: App {
     
+    let service = MeteorsFeatureService()
+    
     var body: some Scene {
         WindowGroup {
-            TabBarView()
+            TabBarView(meteoriteListContainer: service.meteoriteList(),
+                       //mapViewContainer: service.map(),
+                       favoriteMeteoritesContainer: service.favoriteMeteorites())
         }
     }
 }
