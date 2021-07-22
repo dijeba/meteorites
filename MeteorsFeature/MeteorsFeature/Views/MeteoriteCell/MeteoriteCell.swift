@@ -9,27 +9,27 @@ import SwiftUI
 
 struct MeteoriteCell: View {
     
-    let model: MeteoriteCellModel
+    let viewModel: MeteoriteCellViewModel
     
     var body: some View {
         VStack {
             HStack {
-                TitleTextView(text: model.name)
+                TitleTextView(text: viewModel.data.name)
                 Spacer()
                 VStack {
-                    CaptionTextView(text: model.yearTitle)
-                    SubtitleThinTextView(text: model.year)
+                    CaptionTextView(text: viewModel.data.yearTitle)
+                    SubtitleThinTextView(text: viewModel.data.year)
                 }
             }
             .padding()
             
             HStack {
                 VStack {
-                    CaptionTextView(text: model.massTitle)
-                    SubtitleThinTextView(text: model.mass)
+                    CaptionTextView(text: viewModel.data.massTitle)
+                    SubtitleThinTextView(text: viewModel.data.mass)
                 }
                 Spacer()
-                FavButton(isFavorite: model.isFavorite)
+                FavButton(viewModel: viewModel, isFavorite: viewModel.data.isFavorite)
             }
             .padding()
         }
@@ -56,18 +56,21 @@ struct MeteoriteCell: View {
 
 private struct FavButton: View {
     
+    let viewModel: MeteoriteCellViewModel
     @State var isFavorite: Bool
     
     var body: some View {
         
         Button(action: {
             isFavorite.toggle()
+            viewModel.updateFav(isFavorite)
         }, label: {
             Image(systemName: FavoriteButtonModel.systemName(isFav: isFavorite))
                 .resizable()
                 .frame(width: 35, height: 30)
                 .foregroundColor(FavoriteButtonModel.color(isFav: isFavorite))
         })
+        .buttonStyle(PlainButtonStyle())
     }
 }
 
@@ -75,16 +78,19 @@ struct Cells_Previews: PreviewProvider {
     
     static var previews: some View {
         
+        let mockViewModel = MeteoriteCellViewModel(meteorite: PreviewMockGenerator.MeteoriteBusinessModel.model,
+                                                   data: PreviewMockGenerator.MeteoriteCell.Fav)
+        
         VStack {
-            MeteoriteCell(model: PreviewMockGenerator.MeteoriteCell.Fav)
-            MeteoriteCell(model: PreviewMockGenerator.MeteoriteCell.NotFav)
+            MeteoriteCell(viewModel: mockViewModel)
+            MeteoriteCell(viewModel: mockViewModel)
         }
         .preferredColorScheme(.light)
             
         
         VStack {
-            MeteoriteCell(model: PreviewMockGenerator.MeteoriteCell.Fav)
-            MeteoriteCell(model: PreviewMockGenerator.MeteoriteCell.NotFav)
+            MeteoriteCell(viewModel: mockViewModel)
+            MeteoriteCell(viewModel: mockViewModel)
         }
         .preferredColorScheme(.dark)
     }

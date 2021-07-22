@@ -62,3 +62,8 @@ enum Constants {
         static let prefix = "db-meteorite"
     }
 }
+
+extension Notification.Name {
+    
+    static let meteoriteListUpdated = NSNotification.Name("MeteoriteListUpdated")
+}

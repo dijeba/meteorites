@@ -35,8 +35,11 @@ struct MeteoriteListView: View {
                         NavigationLink(
                             destination: MapView(meteorite: viewModel.getMeteorite(id: cellModel.modelId)),
                             label: {
-                                
-                                MeteoriteCell(model: cellModel)
+                                let viewModel = MeteoriteCellViewModel(
+                                    meteorite: viewModel.getMeteorite(id: cellModel.modelId),
+                                    data: cellModel
+                                )
+                                MeteoriteCell(viewModel: viewModel)
                             })
                     }
                     .listRowBackground(Color.clear)

@@ -25,7 +25,7 @@ public class MeteorsFeature {
     
     public var meteorites: [Meteorite] = [] {
         didSet {
-            onUpdate?(meteorites)
+            NotificationCenter.default.post(Notification(name: .meteoriteListUpdated))
         }
     }
     

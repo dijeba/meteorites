@@ -26,13 +26,13 @@ struct MeteoriteListModelFactory: MeteoriteListModelBuildable {
     func makeModel(meteorites: [Meteorite], isFavoriteScreen: Bool) -> MeteoriteListModel {
         
         let title = isFavoriteScreen ? Constants.MeteoriteList.titleFavorites : Constants.MeteoriteList.title
-        let cells = meteorites.map(createMeteoriteCellModel)
+        let cells = meteorites.map { createMeteoriteCellModel(from: $0, isFavoriteScreen: isFavoriteScreen) }
         
         return MeteoriteListModel(title: title,
                                   cells: cells)
     }
     
-    private func createMeteoriteCellModel(from meteorite: Meteorite) -> MeteoriteCellModel {
+    private func createMeteoriteCellModel(from meteorite: Meteorite, isFavoriteScreen: Bool) -> MeteoriteCellModel {
         
         let massString = String(meteorite.mass)
         
@@ -42,7 +42,7 @@ struct MeteoriteListModelFactory: MeteoriteListModelBuildable {
                                   yearTitle: Constants.MeteoriteCell.yearTitle,
                                   _mass: massString,
                                   massTitle: Constants.MeteoriteCell.massTitle,
-                                  isFavorite: meteorite.isFavorite)
+                                  isFavorite: isFavoriteScreen ? true : meteorite.isFavorite)
     }
 }
 

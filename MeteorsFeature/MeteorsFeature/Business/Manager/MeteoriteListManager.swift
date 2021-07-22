@@ -31,13 +31,13 @@ class MeteoriteListManager: MeteoriteListManagerProtocol {
         self.dbService = dbService
     }
     
-    // MARK:- Networking
+    // MARK: - Networking
     
     func fetchMeteorites(completion: @escaping (ServiceResult<[Meteorite]>) -> Void) {
         apiService.fetchMeteorites(completion: completion)
     }
     
-    // MARK:- DB
+    // MARK: - DB
     
     func getFavorites() -> [Meteorite] {
         dbService.loadObjects()
@@ -45,9 +45,32 @@ class MeteoriteListManager: MeteoriteListManagerProtocol {
     
     func saveFavorite(meteorite: Meteorite) {
         dbService.save(meteorite)
+        updateMeteorite(id: meteorite.id, isFav: !meteorite.isFavorite)
     }
     
     func removeFavorite(meteorite: Meteorite) {
         dbService.delete(meteorite)
+        updateMeteorite(id: meteorite.id, isFav: !meteorite.isFavorite)
+    }
+    
+    private func updateMeteorite(id: Int, isFav: Bool) {
+        
+        let updatedList = meteorsFeature.meteorites.map { m -> Meteorite in
+            
+            if m.id == id {
+                return Meteorite(
+                    id: m.id,
+                    name: m.name,
+                    isFavorite: isFav,
+                    mass: m.mass,
+                    date: m.date,
+                    coordinates: m.coordinates
+                )
+            } else {
+                return m
+            }
+        }
+        
+        meteorsFeature.meteorites = updatedList
     }
 }

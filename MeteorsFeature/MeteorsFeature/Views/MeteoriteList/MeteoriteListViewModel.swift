@@ -12,18 +12,26 @@ class MeteoriteListViewModel: ObservableObject {
     
     @Published var data: MeteoriteListModel
     
+    private let isFavoriteScreen: Bool
     private let modelFactory: MeteoriteListModelBuildable
     private let manager: MeteoriteListManagerProtocol
+    private var subscription: AnyCancellable?
     
     init(isFavoriteScreen: Bool,
          modelFactory: MeteoriteListModelBuildable = MeteoriteListModelFactory(),
          manager: MeteoriteListManagerProtocol = MeteoriteListManager()) {
         
+        self.isFavoriteScreen = isFavoriteScreen
         self.modelFactory = modelFactory
         self.manager = manager
         self.data = modelFactory.makeDefaultModel(isFavoriteScreen: isFavoriteScreen)
         
+        subscribeToNotifications()
         setup(isFavoriteScreen: isFavoriteScreen)
+    }
+    
+    deinit {
+        subscription?.cancel()
     }
     
     func getMeteorite(id: Int) -> Meteorite {
@@ -34,6 +42,29 @@ class MeteoriteListViewModel: ObservableObject {
 // MARK: - Private
 
 extension MeteoriteListViewModel {
+    
+    private func subscribeToNotifications() {
+        
+        subscription = NotificationCenter.default
+            .publisher(for: .meteoriteListUpdated)
+            .sink(receiveValue: { [weak self] _ in
+                
+                guard let self = self else {
+                    return
+                }
+                
+                DispatchQueue.main.async {
+                    
+                    if self.isFavoriteScreen {
+                        self.getFavorites()
+                    } else {
+                        self.data = self.modelFactory.makeModel(meteorites: meteorsFeature.meteorites,
+                                                                isFavoriteScreen: self.isFavoriteScreen)
+                    }
+                    
+                }
+            })
+    }
     
     private func setup(isFavoriteScreen: Bool) {
         
@@ -91,7 +122,7 @@ extension MeteoriteListViewModel {
             return meteorites
         }
         
-        return favorites.map { m -> Meteorite in
+        return meteorites.map { m -> Meteorite in
             
             if idFavorites.contains(m.id) {
                 return Meteorite(
