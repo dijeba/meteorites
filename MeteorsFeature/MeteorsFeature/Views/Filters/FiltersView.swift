@@ -6,12 +6,10 @@
 //
 
 import SwiftUI
-import Combine
 
 struct FiltersView: View {
     
     @ObservedObject var viewModel: FiltersViewModel
-    
     @State var sliderValue: Double
     @Binding var filtersViewIsShowing: Bool
     
@@ -28,12 +26,16 @@ struct FiltersView: View {
     var body: some View {
         
         VStack {
+            
             TitleTextView(text: viewModel.data.title)
                 .padding(.top, Constants.FiltersView.paddingTopTitle)
                 .padding([.leading, .bottom, .trailing])
+            
             CaptionTextView(text: viewModel.data.subtitle)
                 .padding()
+            
             VStack {
+                
                 HStack {
                     SubtitleTextView(text: viewModel.data.maxSizeTitle)
                         .padding([.leading, .top, .bottom])
@@ -48,7 +50,9 @@ struct FiltersView: View {
                 .padding([.leading, .trailing, .bottom])
                 .accentColor(Color("AccentColor", bundle: .module))
             }
+            
             Spacer()
+            
             VStack(spacing: Constants.FiltersView.spacingFloatingButtons) {
                 ResetFiltersButton {
                     viewModel.resetFilterValues()

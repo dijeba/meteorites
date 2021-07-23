@@ -11,10 +11,13 @@ import MapKit
 
 class MapViewModel {
     
-    @Published var data: MapModel
+    // MARK: - Properties
     
+    @Published var data: MapModel
     private let modelFactory: MapViewModelBuildable
     private var subscription: AnyCancellable?
+    
+    // MARK: - Init
     
     init(meteorite: Meteorite,
          modelFactory: MapViewModelBuildable = MapViewModelFactory()) {
@@ -35,6 +38,17 @@ class MapViewModel {
         subscription?.cancel()
     }
     
+    // MARK: - Public
+    
+    func updateLocation(_ location: CLLocationCoordinate2D) {
+        DispatchQueue.guaranteeMainThread {
+            self.data = self.modelFactory.makeModel(userLocation: location,
+                                                    meteorites: meteorsFeature.meteorites)
+        }
+    }
+    
+    // MARK: - Private
+    
     private func subscribeToNotifications() {
         
         subscription = NotificationCenter.default
@@ -50,12 +64,5 @@ class MapViewModel {
                                                        meteorites: meteorsFeature.meteorites)
                 }
             })
-    }
-    
-    func updateLocation(_ location: CLLocationCoordinate2D) {
-        DispatchQueue.guaranteeMainThread {
-            self.data = self.modelFactory.makeModel(userLocation: location,
-                                                    meteorites: meteorsFeature.meteorites)
-        }
     }
 }

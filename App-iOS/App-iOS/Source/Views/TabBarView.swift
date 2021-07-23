@@ -10,8 +10,6 @@ import MeteorsFeature
 
 struct TabBarView: View {
     
-    //@State var meteorites = meteorsFeature.meteorites
-    
     let meteoriteListContainer: MeteorsFeatureContainerView
     let mapViewContainer: MeteorsFeatureContainerView
     let favoriteMeteoritesContainer: MeteorsFeatureContainerView

@@ -9,9 +9,13 @@ import Foundation
 
 class MeteoriteCellViewModel {
     
+    // MARK: - Properties
+    
     let data: MeteoriteCellModel
     private let meteorite: Meteorite
     private let manager: MeteoriteListManagerProtocol
+    
+    // MARK: - Init
     
     init(meteorite: Meteorite,
          data: MeteoriteCellModel,
@@ -21,6 +25,8 @@ class MeteoriteCellViewModel {
         self.data = data
         self.manager = manager
     }
+    
+    // MARK: - Public
     
     func updateFav(_ isFav: Bool) {
         

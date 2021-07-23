@@ -20,6 +20,7 @@
 		095F404626AAE2C9002329CD /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095F404526AAE2C9002329CD /* Bundle+Extension.swift */; };
 		095F404826AAE2FB002329CD /* DispatchQueue+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095F404726AAE2FB002329CD /* DispatchQueue+Extension.swift */; };
 		095F404A26AB1214002329CD /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095F404926AB1214002329CD /* LocationManager.swift */; };
+		095F404C26AB2577002329CD /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095F404B26AB2577002329CD /* Date+Extension.swift */; };
 		097FE1D326A1EDD800E7A423 /* MeteoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097FE1D226A1EDD800E7A423 /* MeteoriteCell.swift */; };
 		097FE1D726A1EE7900E7A423 /* Meteorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097FE1D626A1EE7900E7A423 /* Meteorite.swift */; };
 		097FE1DB26A1FD8200E7A423 /* TextViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097FE1DA26A1FD8200E7A423 /* TextViews.swift */; };
@@ -84,6 +85,7 @@
 		095F404526AAE2C9002329CD /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 		095F404726AAE2FB002329CD /* DispatchQueue+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Extension.swift"; sourceTree = "<group>"; };
 		095F404926AB1214002329CD /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		095F404B26AB2577002329CD /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		097FE1D226A1EDD800E7A423 /* MeteoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeteoriteCell.swift; sourceTree = "<group>"; };
 		097FE1D626A1EE7900E7A423 /* Meteorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meteorite.swift; sourceTree = "<group>"; };
 		097FE1DA26A1FD8200E7A423 /* TextViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViews.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				095F404526AAE2C9002329CD /* Bundle+Extension.swift */,
+				095F404B26AB2577002329CD /* Date+Extension.swift */,
 				095F404726AAE2FB002329CD /* DispatchQueue+Extension.swift */,
 			);
 			path = Extensions;
@@ -579,6 +582,7 @@
 				095533BD26A6313E003A65A7 /* MeteoriteListViewModel.swift in Sources */,
 				095533B826A62A7B003A65A7 /* FiltersModelFactory.swift in Sources */,
 				097FE1DB26A1FD8200E7A423 /* TextViews.swift in Sources */,
+				095F404C26AB2577002329CD /* Date+Extension.swift in Sources */,
 				095F403C26AACD1B002329CD /* MeteoriteListBridge.swift in Sources */,
 				F1614E3E26A9A037004F4285 /* MeteorsFeatureContainerView.swift in Sources */,
 				09C94C4726A73BE500BAED7D /* MeteoriteListManager.swift in Sources */,

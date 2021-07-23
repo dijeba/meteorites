@@ -10,9 +10,13 @@ import Combine
 
 class FiltersViewModel: ObservableObject {
     
+    // MARK: - Properties
+    
     @Published var data: FiltersModel
     private let modelFactory: FiltersModelBuildable
     private let bridge: MeteoriteListBridge
+    
+    // MARK: - Init
     
     init(modelFactory: FiltersModelBuildable = FilterModelFactory(),
          bridge: MeteoriteListBridge) {
@@ -23,6 +27,8 @@ class FiltersViewModel: ObservableObject {
             sliderValue: bridge.filtersModel?.sizeSliderValue ?? Constants.FiltersView.defaultSliderValue
         )
     }
+    
+    // MARK: - Public
     
     func saveFilterValues(sliderValue: Double) {
         

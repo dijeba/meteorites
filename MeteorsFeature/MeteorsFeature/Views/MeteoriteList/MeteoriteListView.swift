@@ -16,11 +16,11 @@ struct MeteoriteListView: View {
     
     private let isFavoriteScreen: Bool
     
-    init(isFavoriteScreen: Bool, modelFactory: MeteoriteListModelBuildable = MeteoriteListModelFactory()) {
+    init(isFavoriteScreen: Bool,
+         modelFactory: MeteoriteListModelBuildable = MeteoriteListModelFactory()) {
         
         self.viewModel = MeteoriteListViewModel(isFavoriteScreen: isFavoriteScreen,
                                                 modelFactory: modelFactory)
-        
         self.isFavoriteScreen = isFavoriteScreen
         
         isDownloading = isFavoriteScreen ? false : true
@@ -30,16 +30,21 @@ struct MeteoriteListView: View {
     }
     
     var body: some View {
+        
         NavigationView {
+            
             ZStack {
                 if isDownloading {
+                    
                     ProgressView {
                         Text(Constants.MeteoriteList.downloadingText)
                             .bold()
                     }.onReceive(viewModel.$isDownloading, perform: { _ in
                         isDownloading = false
                     })
+                    
                 } else {
+                    
                     List {
                         ForEach(viewModel.data.cells) { cellModel in
 

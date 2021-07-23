@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Combine
 
 public let meteorsFeature = MeteorsFeature()
 
@@ -16,27 +15,21 @@ public class MeteorsFeature {
     
     // MARK: - Variables
     
-    // TODO: review
     public enum View {
         case meteoriteList
         case mapView
         case favoriteMeteorites
     }
     
-    public var meteorites: [Meteorite] = [] {
+    internal var meteorites: [Meteorite] = [] {
         didSet {
             NotificationCenter.default.post(Notification(name: .meteoriteListUpdated))
         }
     }
     
-    private var onUpdate: OnMeteoritesUpdate?
-    
     // MARK: - Functions
     
-    public func show(_ containerView: View,
-                     onUpdate: OnMeteoritesUpdate? = nil) -> MeteorsFeatureContainerView {
-        
-        self.onUpdate = onUpdate
-        return MeteorsFeatureContainerView(viewType: containerView)
+    public func show(_ containerView: View) -> MeteorsFeatureContainerView {
+        MeteorsFeatureContainerView(viewType: containerView)
     }
 }

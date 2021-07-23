@@ -15,7 +15,7 @@ struct MapView: View {
     @State private var region: MKCoordinateRegion
     @ObservedObject private var locationManager = LocationManager()
     
-    /// DetailView
+    /// Entrance to the DetailView (from MeteoriteListView)
     
     init(meteorite: Meteorite,
          modelFactory: MapViewModelBuildable = MapViewModelFactory()) {
@@ -24,7 +24,7 @@ struct MapView: View {
         self.region = viewModel.data.region
     }
     
-    /// NearMe feature
+    /// Entrance to the NearMe feature (from the tab bar)
     
     init(modelFactory: MapViewModelBuildable = MapViewModelFactory()) {
         

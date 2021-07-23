@@ -10,6 +10,8 @@ import Combine
 
 class MeteoriteListViewModel: ObservableObject {
     
+    // MARK: - Properties
+    
     @Published var data: MeteoriteListModel
     @Published private(set) var isDownloading: Bool = false
     
@@ -18,6 +20,8 @@ class MeteoriteListViewModel: ObservableObject {
     private let manager: MeteoriteListManagerProtocol
     private var subscription: AnyCancellable?
     private(set) var stateFiltersModel: FiltersModel? /// we need to save the state in order to 'remember' which filters have been set
+    
+    // MARK: - Init
     
     init(isFavoriteScreen: Bool,
          modelFactory: MeteoriteListModelBuildable = MeteoriteListModelFactory(),
@@ -35,6 +39,8 @@ class MeteoriteListViewModel: ObservableObject {
     deinit {
         subscription?.cancel()
     }
+    
+    // MARK: - Public
     
     func getMeteorite(id: Int) -> Meteorite {
         meteorsFeature.meteorites.first { $0.id == id } ?? PreviewMockGenerator.MeteoriteBusinessModel.model

@@ -14,8 +14,4 @@ struct FiltersModel {
     let maxSizeTitle: String
     let sizeSliderValue: Double
     let titleApplyButton: String
-    
-    var maxSize: String {
-        "> \(sizeSliderValue.rounded()) g"
-    }
 }

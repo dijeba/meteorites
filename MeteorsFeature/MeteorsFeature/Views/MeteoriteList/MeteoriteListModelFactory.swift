@@ -54,14 +54,3 @@ struct MeteoriteListModelFactory: MeteoriteListModelBuildable {
                                   isFavorite: isFavoriteScreen ? true : meteorite.isFavorite)
     }
 }
-
-extension Date {
-    
-    func yearToString() -> String {
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.setLocalizedDateFormatFromTemplate("yyyy")
-        
-        return dateFormatter.string(from: self)
-    }
-}
