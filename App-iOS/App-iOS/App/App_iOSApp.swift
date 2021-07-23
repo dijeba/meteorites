@@ -16,7 +16,7 @@ struct App_iOSApp: App {
     var body: some Scene {
         WindowGroup {
             TabBarView(meteoriteListContainer: service.meteoriteList(),
-                       //mapViewContainer: service.map(),
+                       mapViewContainer: service.map(),
                        favoriteMeteoritesContainer: service.favoriteMeteorites())
         }
     }

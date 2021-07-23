@@ -19,7 +19,7 @@ public class MeteorsFeature {
     // TODO: review
     public enum View {
         case meteoriteList
-//        case mapView(meteorites: [Meteorite])
+        case mapView
         case favoriteMeteorites
     }
     

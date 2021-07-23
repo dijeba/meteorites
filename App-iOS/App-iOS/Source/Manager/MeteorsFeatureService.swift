@@ -18,8 +18,7 @@ class MeteorsFeatureService {
         return meteorsFeature.show(.favoriteMeteorites)
     }
     
-//    private(set) lazy var map = {
-//        return meteorsFeature.show(.mapView(meteorites: [])) { (meteorites) in
-//        }
-//    }
+    private(set) lazy var map = {
+        return meteorsFeature.show(.mapView)
+    }
 }

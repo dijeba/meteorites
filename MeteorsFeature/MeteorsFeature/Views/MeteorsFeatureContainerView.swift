@@ -20,8 +20,8 @@ public struct MeteorsFeatureContainerView: View {
         switch viewType {
         case .meteoriteList:
             MeteoriteListView(isFavoriteScreen: false)
-//        case .mapView(let meteorites):
-//            MapView(meteorites: )
+        case .mapView:
+            MapView()
         case .favoriteMeteorites:
             MeteoriteListView(isFavoriteScreen: true)
         }

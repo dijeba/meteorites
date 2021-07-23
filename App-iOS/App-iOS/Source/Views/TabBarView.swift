@@ -10,16 +10,11 @@ import MeteorsFeature
 
 struct TabBarView: View {
     
+    //@State var meteorites = meteorsFeature.meteorites
+    
     let meteoriteListContainer: MeteorsFeatureContainerView
-//    let mapViewContainer: MeteorsFeatureContainerView
+    let mapViewContainer: MeteorsFeatureContainerView
     let favoriteMeteoritesContainer: MeteorsFeatureContainerView
-    
-    @State var meteorites = meteorsFeature.meteorites
-    
-//    init() {
-//        UITabBar.appearance().barTintColor = .white
-//        UITabBar.appearance().unselectedItemTintColor = UIColor(named: "ClearBackground")
-//    }
     
     var body: some View {
         TabView {
@@ -29,11 +24,11 @@ struct TabBarView: View {
                     Text("Meteorites")
                 }
             
-//            meteorsFeature.show(.mapView(meteorites: meteorites))
-//                .tabItem {
-//                    Image(systemName: "figure.walk")
-//                    Text("Near me")
-//                }
+            mapViewContainer
+                .tabItem {
+                    Image(systemName: "figure.walk")
+                    Text("Near me")
+                }
             
             favoriteMeteoritesContainer
                 .tabItem {
@@ -44,16 +39,3 @@ struct TabBarView: View {
         .accentColor(Color("AccentColor"))   
     }
 }
-
-// TODO
-//struct TabBarView_Previews: PreviewProvider {
-//
-//    static var previews: some View {
-//
-//        TabBarView()
-//            .preferredColorScheme(.light)
-//
-//        TabBarView()
-//            .preferredColorScheme(.dark)
-//    }
-//}

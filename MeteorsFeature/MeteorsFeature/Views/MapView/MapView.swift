@@ -13,26 +13,25 @@ struct MapView: View {
     
     private var viewModel: MapViewModel
     @State private var region: MKCoordinateRegion
+    @ObservedObject private var locationManager = LocationManager()
     
-//    @State var meteorites: [Meteorite] = MeteorsFeature.meteorites {
-//        didSet {
-//            viewModel = MapViewModel(meteorites: meteorites)
-//        }
-//    }
+    /// DetailView
     
-    init(meteorite: Meteorite, modelFactory: MapViewModelBuildable = MapViewModelFactory()) {
+    init(meteorite: Meteorite,
+         modelFactory: MapViewModelBuildable = MapViewModelFactory()) {
+        
         self.viewModel = MapViewModel(meteorite: meteorite, modelFactory: modelFactory)
         self.region = viewModel.data.region
     }
     
-//    init(meteorites: [Meteorite]) {
-//
-//        // TODO: get user's location
-//        self.meteorites = meteorites
-//
-//        self.viewModel = MapViewModel(userLocation: .init(latitude: 1, longitude: 1),
-//                                      meteorites: meteorites)
-//    }
+    /// NearMe feature
+    
+    init(modelFactory: MapViewModelBuildable = MapViewModelFactory()) {
+        
+        self.viewModel = MapViewModel(modelFactory: modelFactory)
+        self.region = viewModel.data.region
+        locationManager.startUpdatingLocation(viewModel)
+    }
     
     var body: some View {
         
@@ -84,7 +83,6 @@ struct MapDetailView: View {
     }
 }
 
-// TODO
 struct MapView_Previews: PreviewProvider {
 
     static var previews: some View {
