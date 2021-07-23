@@ -53,15 +53,13 @@ extension MeteoriteListViewModel {
                     return
                 }
                 
-                DispatchQueue.main.async {
-                    
+                DispatchQueue.guaranteeMainThread {
                     if self.isFavoriteScreen {
                         self.getFavorites()
                     } else {
                         self.data = self.modelFactory.makeModel(meteorites: meteorsFeature.meteorites,
                                                                 isFavoriteScreen: self.isFavoriteScreen)
                     }
-                    
                 }
             })
     }
@@ -83,6 +81,7 @@ extension MeteoriteListViewModel {
     
     private func downloadMeteorites() {
         
+        /// Cache
         guard meteorsFeature.meteorites.isEmpty else {
             return
         }
@@ -101,11 +100,10 @@ extension MeteoriteListViewModel {
                 
                 meteorsFeature.meteorites = processedMeteorites
                 
-                DispatchQueue.main.async {
+                DispatchQueue.guaranteeMainThread {
                     self.data = self.modelFactory.makeModel(meteorites: processedMeteorites,
                                                             isFavoriteScreen: false)
                 }
-                
                 
             case .failure(let error):
                 print(error)

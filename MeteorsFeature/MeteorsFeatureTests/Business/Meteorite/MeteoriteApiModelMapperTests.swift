@@ -50,8 +50,8 @@ class MeteoriteApiModelMapperTests: XCTestCase {
         
         XCTAssertEqual(Int(api.id) ?? 0, business.id)
         XCTAssertEqual(api.name, business.name)
-        XCTAssertEqual(api.geolocation?.coordinates?[0], business.coordinates.lat)
-        XCTAssertEqual(api.geolocation?.coordinates?[1], business.coordinates.lon)
+        XCTAssertEqual(api.geolocation?.coordinates?[1], business.coordinates.lat)
+        XCTAssertEqual(api.geolocation?.coordinates?[0], business.coordinates.lon)
         
         XCTAssertNil(api.nameType)
         XCTAssertNil(api.recclass)

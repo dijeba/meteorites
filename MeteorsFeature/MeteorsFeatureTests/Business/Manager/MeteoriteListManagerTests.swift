@@ -41,8 +41,8 @@ class MeteoriteListManagerTests: XCTestCase {
                 XCTAssertEqual(firstMeteorite.name, "Aachen")
                 XCTAssertFalse(firstMeteorite.isFavorite)
                 XCTAssertEqual(firstMeteorite.mass, 21)
-                XCTAssertEqual(firstMeteorite.coordinates.lat, 6.08333)
-                XCTAssertEqual(firstMeteorite.coordinates.lon, 50.775)
+                XCTAssertEqual(firstMeteorite.coordinates.lat, 50.775)
+                XCTAssertEqual(firstMeteorite.coordinates.lon, 6.08333)
                 
             case .failure(let error):
                 XCTFail("Should not return error: \(error)")
