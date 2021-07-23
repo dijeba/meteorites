@@ -41,15 +41,21 @@ class MeteoriteListViewModel: ObservableObject {
     
     func createBridge() -> MeteoriteListBridge {
         
-        let onNewFilterSelected: MeteoriteListBridge.OnNewFilterSelected = { [weak self] filtersModel in
+        let onNewFilterSelected: MeteoriteListBridge.OnNewFilterSelected = { [weak self] filtersModel, reset in
             
             guard let self = self else {
                 return
             }
             
-            self.data = self.modelFactory.makeFilteredModel(meteorites: meteorsFeature.meteorites,
-                                                            isFavoriteScreen: self.isFavoriteScreen,
-                                                            maxSize: filtersModel.sizeSliderValue)
+            if reset {
+                self.data = self.modelFactory.makeModel(meteorites: meteorsFeature.meteorites,
+                                                        isFavoriteScreen: self.isFavoriteScreen)
+            } else {
+                self.data = self.modelFactory.makeFilteredModel(meteorites: meteorsFeature.meteorites,
+                                                                isFavoriteScreen: self.isFavoriteScreen,
+                                                                maxSize: filtersModel.sizeSliderValue)
+            }
+            
             self.stateFiltersModel = filtersModel
         }
         

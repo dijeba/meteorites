@@ -28,26 +28,6 @@ struct FloatingButton: View {
     }
 }
 
-struct ApplyFiltersButton: View {
-    
-    let action: () -> Void
-    
-    var body: some View {
-        
-        Button(action: action,
-               label: {
-                ZStack {
-                    RoundedRectangle(
-                        cornerRadius: Constants.FiltersView.buttonCornerRadius
-                    )
-                    .fill(Color("AccentColor", bundle: .module))
-                    .frame(width: 295, height: 51)
-                    SubtitleTextView(text: "Apply", color: Color("Clear", bundle: .module))
-                }
-               })
-    }
-}
-
 struct RefreshButton: View {
     
     let action: () -> Void
@@ -69,20 +49,62 @@ struct RefreshButton: View {
     }
 }
 
+struct ApplyFiltersButton: View {
+    
+    let action: () -> Void
+    
+    var body: some View {
+        
+        Button(action: action,
+               label: {
+                ZStack {
+                    RoundedRectangle(
+                        cornerRadius: Constants.FiltersView.buttonCornerRadius
+                    )
+                    .fill(Color("AccentColor", bundle: .module))
+                    .frame(width: 295, height: 51)
+                    SubtitleTextView(text: "Apply", color: Color("Clear", bundle: .module))
+                }
+               })
+    }
+}
+
+struct ResetFiltersButton: View {
+    
+    let action: () -> Void
+    
+    var body: some View {
+        
+        Button(action: action,
+               label: {
+                ZStack {
+                    RoundedRectangle(
+                        cornerRadius: Constants.FiltersView.buttonCornerRadius
+                    )
+                    .fill(Color("PrimaryColor", bundle: .module))
+                    .frame(width: 295, height: 51)
+                    SubtitleTextView(text: "Reset", color: Color("SecondaryColor", bundle: .module))
+                }
+               })
+    }
+}
+
 struct Buttons_Previews: PreviewProvider {
     
     static var previews: some View {
         
-        VStack {
+        VStack(spacing: 20) {
             FloatingButton(action: {})
-            ApplyFiltersButton(action: {})
             RefreshButton(action: {})
+            ApplyFiltersButton(action: {})
+            ResetFiltersButton(action: {})
         }.preferredColorScheme(.light)
         
-        VStack {
+        VStack(spacing: 20) {
             FloatingButton(action: {})
-            ApplyFiltersButton(action: {})
             RefreshButton(action: {})
+            ApplyFiltersButton(action: {})
+            ResetFiltersButton(action: {})
         }.preferredColorScheme(.dark)
     }
 }

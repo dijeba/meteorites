@@ -28,7 +28,13 @@ class FiltersViewModel: ObservableObject {
     func saveFilterValues(sliderValue: Double) {
         
         data = modelFactory.makeModel(sliderValue: sliderValue)
-        bridge.onNewFilterSelected?(data)
+        bridge.onNewFilterSelected?(data, false)
+    }
+    
+    func resetFilterValues() {
+        
+        data = modelFactory.makeModel(sliderValue: Constants.FiltersView.defaultSliderValue)
+        bridge.onNewFilterSelected?(data, true)
     }
     
     func formatSliderValue(_ value: Double) -> String {

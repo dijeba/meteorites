@@ -49,10 +49,16 @@ struct FiltersView: View {
                 .accentColor(Color("AccentColor", bundle: .module))
             }
             Spacer()
-            ApplyFiltersButton(action: {
-                viewModel.saveFilterValues(sliderValue: sliderValue)
-                filtersViewIsShowing = false
-            })
+            VStack(spacing: Constants.FiltersView.spacingFloatingButtons) {
+                ResetFiltersButton {
+                    viewModel.resetFilterValues()
+                    filtersViewIsShowing = false
+                }
+                ApplyFiltersButton(action: {
+                    viewModel.saveFilterValues(sliderValue: sliderValue)
+                    filtersViewIsShowing = false
+                })
+            }
             .padding(Constants.FiltersView.paddingBottomSaveButton)
         }
         .background(Color("SecondaryColor", bundle: .module))

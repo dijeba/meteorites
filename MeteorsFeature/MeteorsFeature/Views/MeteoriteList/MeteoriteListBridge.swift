@@ -9,7 +9,7 @@ import Foundation
 
 struct MeteoriteListBridge {
     
-    typealias OnNewFilterSelected = (_ filtersModel: FiltersModel) -> Void
+    typealias OnNewFilterSelected = (_ filtersModel: FiltersModel, _ resetFilters: Bool) -> Void
     
     let filtersModel: FiltersModel?
     let onNewFilterSelected: OnNewFilterSelected?
