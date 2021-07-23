@@ -86,4 +86,21 @@ class MeteoriteListModelFactoryTests: XCTestCase {
         XCTAssertEqual(result.cells[1].mass, "1g")
         XCTAssertTrue(result.cells[1].isFavorite)
     }
+    
+    func test_makeFilteredModel() {
+        
+        let meteorites = [
+            MeteoriteMockGenerator.makeBusinessMeteorite(id: 1, mass: 5000),
+            MeteoriteMockGenerator.makeBusinessMeteorite(id: 2, mass: 10000),
+            MeteoriteMockGenerator.makeBusinessMeteorite(id: 3, mass: 1000)
+        ]
+        
+        let result = sut.makeFilteredModel(meteorites: meteorites,
+                                           isFavoriteScreen: false,
+                                           minSize: 5100)
+        
+        XCTAssertEqual(result.cells.count, 1)
+        XCTAssertEqual(result.cells[0].modelId, 2)
+        XCTAssertEqual(result.cells[0].mass, "10000g")
+    }
 }

@@ -54,7 +54,7 @@ class MeteoriteListViewModel: ObservableObject {
             } else {
                 self.data = self.modelFactory.makeFilteredModel(meteorites: meteorsFeature.meteorites,
                                                                 isFavoriteScreen: self.isFavoriteScreen,
-                                                                maxSize: filtersModel.sizeSliderValue)
+                                                                minSize: filtersModel.sizeSliderValue)
             }
             
             self.stateFiltersModel = filtersModel

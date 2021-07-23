@@ -54,7 +54,6 @@ class MeteoriteListViewModelTests: XCTestCase {
     func test_getMeteorite() {
         
         let mockManager = MockMeteoriteListManager(expectation: nil)
-        
         sut = MeteoriteListViewModel(isFavoriteScreen: true, manager: mockManager)
         
         let meteorite1 = sut.getMeteorite(id: 1)

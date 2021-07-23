@@ -31,12 +31,12 @@ class MeteoriteMockGenerator {
     
     private(set) static var meteoriteDate = Date(timeIntervalSince1970: 0)
     
-    static func makeBusinessMeteorite(id: Int, isFavorite: Bool = true) -> Meteorite {
+    static func makeBusinessMeteorite(id: Int, isFavorite: Bool = true, mass: Int  = 1) -> Meteorite {
         
         Meteorite(id: id,
                   name: "M\(id)",
                   isFavorite: isFavorite,
-                  mass: 1,
+                  mass: mass,
                   date: meteoriteDate,
                   coordinates: (lat: 1, lon: 2))
     }
