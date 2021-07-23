@@ -12,6 +12,7 @@ struct MeteoriteListView: View {
     
     @ObservedObject private var viewModel: MeteoriteListViewModel
     @State private var filtersViewIsShowing = false
+    @State private var isDownloading: Bool
     
     private let isFavoriteScreen: Bool
     
@@ -22,6 +23,8 @@ struct MeteoriteListView: View {
         
         self.isFavoriteScreen = isFavoriteScreen
         
+        isDownloading = isFavoriteScreen ? false : true
+        
         UITableView.appearance().backgroundColor = .clear
         UITableViewCell.appearance().backgroundColor = .clear
     }
@@ -29,20 +32,29 @@ struct MeteoriteListView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                List {
-                    ForEach(viewModel.data.cells) { cellModel in
-                        
-                        NavigationLink(
-                            destination: MapView(meteorite: viewModel.getMeteorite(id: cellModel.modelId)),
-                            label: {
-                                let viewModel = MeteoriteCellViewModel(
-                                    meteorite: viewModel.getMeteorite(id: cellModel.modelId),
-                                    data: cellModel
-                                )
-                                MeteoriteCell(viewModel: viewModel)
-                            })
+                if isDownloading {
+                    ProgressView {
+                        Text(Constants.MeteoriteList.downloadingText)
+                            .bold()
+                    }.onReceive(viewModel.$isDownloading, perform: { _ in
+                        isDownloading = false
+                    })
+                } else {
+                    List {
+                        ForEach(viewModel.data.cells) { cellModel in
+
+                            NavigationLink(
+                                destination: MapView(meteorite: viewModel.getMeteorite(id: cellModel.modelId)),
+                                label: {
+                                    let viewModel = MeteoriteCellViewModel(
+                                        meteorite: viewModel.getMeteorite(id: cellModel.modelId),
+                                        data: cellModel
+                                    )
+                                    MeteoriteCell(viewModel: viewModel)
+                                })
+                        }
+                        .listRowBackground(Color.clear)
                     }
-                    .listRowBackground(Color.clear)
                 }
                 
                 if !isFavoriteScreen {
@@ -51,6 +63,7 @@ struct MeteoriteListView: View {
                         HStack {
                             Spacer()
                             RefreshButton {
+                                isDownloading = true
                                 viewModel.resetFilters()
                                 viewModel.downloadMeteorites(force: true)
                             }

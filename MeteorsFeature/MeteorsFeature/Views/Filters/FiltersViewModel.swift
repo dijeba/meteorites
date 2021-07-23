@@ -24,7 +24,6 @@ class FiltersViewModel: ObservableObject {
         )
     }
     
-    
     func saveFilterValues(sliderValue: Double) {
         
         data = modelFactory.makeModel(sliderValue: sliderValue)

@@ -16,6 +16,7 @@ enum Constants {
         static let noDataFallback = "No data"
         static let noDateFallback = Date(timeIntervalSince1970: 946684800) // 2000-01-01T00:00:00.000
         static let spacingFloatingButtons = CGFloat(30)
+        static let downloadingText = "Downloading data"
     }
     
     enum MeteoriteListBg {

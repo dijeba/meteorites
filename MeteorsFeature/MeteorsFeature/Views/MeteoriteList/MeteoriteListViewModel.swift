@@ -11,6 +11,7 @@ import Combine
 class MeteoriteListViewModel: ObservableObject {
     
     @Published var data: MeteoriteListModel
+    @Published private(set) var isDownloading: Bool = false
     
     private let isFavoriteScreen: Bool
     private let modelFactory: MeteoriteListModelBuildable
@@ -64,6 +65,8 @@ class MeteoriteListViewModel: ObservableObject {
     
     func downloadMeteorites(force: Bool) {
         
+        isDownloading = true
+        
         /// Cache
         
         guard meteorsFeature.meteorites.isEmpty || force else {
@@ -85,11 +88,13 @@ class MeteoriteListViewModel: ObservableObject {
                 meteorsFeature.meteorites = processedMeteorites
                 
                 DispatchQueue.guaranteeMainThread {
+                    self.isDownloading = false
                     self.data = self.modelFactory.makeModel(meteorites: processedMeteorites,
                                                             isFavoriteScreen: false)
                 }
                 
             case .failure(let error):
+                self.isDownloading = false
                 print(error)
             }
         }
