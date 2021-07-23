@@ -11,5 +11,6 @@ struct MeteoriteListBridge {
     
     typealias OnNewFilterSelected = (_ filtersModel: FiltersModel) -> Void
     
+    let filtersModel: FiltersModel?
     let onNewFilterSelected: OnNewFilterSelected?
 }

@@ -19,7 +19,9 @@ class FiltersViewModel: ObservableObject {
         
         self.modelFactory = modelFactory
         self.bridge = bridge
-        self.data = modelFactory.makeModel(sliderValue: Constants.FiltersView.defaultSliderValue)
+        self.data = modelFactory.makeModel(
+            sliderValue: bridge.filtersModel?.sizeSliderValue ?? Constants.FiltersView.defaultSliderValue
+        )
     }
     
     

@@ -16,6 +16,7 @@ class MeteoriteListViewModel: ObservableObject {
     private let modelFactory: MeteoriteListModelBuildable
     private let manager: MeteoriteListManagerProtocol
     private var subscription: AnyCancellable?
+    var stateFiltersModel: FiltersModel? /// we need to save the state in order to 'remember' which filters have been set
     
     init(isFavoriteScreen: Bool,
          modelFactory: MeteoriteListModelBuildable = MeteoriteListModelFactory(),
@@ -49,9 +50,10 @@ class MeteoriteListViewModel: ObservableObject {
             self.data = self.modelFactory.makeFilteredModel(meteorites: meteorsFeature.meteorites,
                                                             isFavoriteScreen: self.isFavoriteScreen,
                                                             maxSize: filtersModel.sizeSliderValue)
+            self.stateFiltersModel = filtersModel
         }
         
-        return MeteoriteListBridge(onNewFilterSelected: onNewFilterSelected)
+        return MeteoriteListBridge(filtersModel: stateFiltersModel, onNewFilterSelected: onNewFilterSelected)
     }
 }
 

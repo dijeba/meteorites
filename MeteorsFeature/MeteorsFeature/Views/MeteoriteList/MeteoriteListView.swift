@@ -54,7 +54,11 @@ struct MeteoriteListView: View {
                                 filtersViewIsShowing = true
                             }
                             .sheet(isPresented: $filtersViewIsShowing, content: {
-                                FiltersView(bridge: viewModel.createBridge(), filtersViewIsShowing: $filtersViewIsShowing)
+                                FiltersView(
+                                    sliderValue: viewModel.stateFiltersModel?.sizeSliderValue,
+                                    bridge: viewModel.createBridge(),
+                                    filtersViewIsShowing: $filtersViewIsShowing
+                                )
                             })
                         }
                     }

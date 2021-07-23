@@ -12,16 +12,17 @@ struct FiltersView: View {
     
     @ObservedObject var viewModel: FiltersViewModel
     
-    @State private var sliderValue: Double
+    @State var sliderValue: Double
     @Binding var filtersViewIsShowing: Bool
     
     init(modelFactory: FiltersModelBuildable = FilterModelFactory(),
+         sliderValue: Double?,
          bridge: MeteoriteListBridge,
          filtersViewIsShowing: Binding<Bool>) {
         
-        self.sliderValue = Constants.FiltersView.defaultSliderValue
         self.viewModel = FiltersViewModel(modelFactory: modelFactory, bridge: bridge)
         _filtersViewIsShowing = filtersViewIsShowing
+        self.sliderValue = sliderValue ?? Constants.FiltersView.defaultSliderValue
     }
     
     var body: some View {
@@ -63,15 +64,17 @@ struct FiltersView_Previews: PreviewProvider {
     
     static var previews: some View {
         
-        let bridge = MeteoriteListBridge(onNewFilterSelected: nil)
+        let bridge = MeteoriteListBridge(filtersModel: nil, onNewFilterSelected: nil)
         let mockFactory = MockFiltersModelFactory()
         
         FiltersView(modelFactory: mockFactory,
+                    sliderValue: nil,
                     bridge: bridge,
                     filtersViewIsShowing: .constant(true))
             .preferredColorScheme(.light)
         
         FiltersView(modelFactory: mockFactory,
+                    sliderValue: nil,
                     bridge: bridge,
                     filtersViewIsShowing: .constant(true))
             .preferredColorScheme(.dark)
