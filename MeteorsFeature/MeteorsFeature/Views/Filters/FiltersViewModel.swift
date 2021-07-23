@@ -6,31 +6,32 @@
 //
 
 import Foundation
+import Combine
 
-class FiltersViewModel {
+class FiltersViewModel: ObservableObject {
     
-    let modelFactory: FiltersModelBuildable
-    private var _data: FiltersModel?
+    @Published var data: FiltersModel
+    private let modelFactory: FiltersModelBuildable
+    private let bridge: MeteoriteListBridge
     
-    var data: FiltersModel {
+    init(modelFactory: FiltersModelBuildable = FilterModelFactory(),
+         bridge: MeteoriteListBridge) {
         
-        guard let data = _data else {
-            assertionFailure("Shouldn't be nil")
-            return modelFactory.makeModel(sliderValue: 0, countrySelectedTitle: "")
-        }
-        
-        return data
-    }
-    
-    init(modelFactory: FiltersModelBuildable = FilterModelFactory()) {
         self.modelFactory = modelFactory
-        // TODO: data = use manager to retrieve stored filters from db (UserDefaults)
+        self.bridge = bridge
+        self.data = modelFactory.makeModel(sliderValue: Constants.FiltersView.defaultSliderValue)
     }
     
     
-    func saveFilterValues(sliderValue: Double, countrySelectedTitle: String) {
+    func saveFilterValues(sliderValue: Double) {
         
-        _data = modelFactory.makeModel(sliderValue: sliderValue,
-                                      countrySelectedTitle: countrySelectedTitle)
+        data = modelFactory.makeModel(sliderValue: sliderValue)
+        bridge.onNewFilterSelected?(data)
+    }
+    
+    func formatSliderValue(_ value: Double) -> String {
+        
+        let rounded = String(format: "%.0f", value.rounded())
+        return "> \(rounded) g"
     }
 }

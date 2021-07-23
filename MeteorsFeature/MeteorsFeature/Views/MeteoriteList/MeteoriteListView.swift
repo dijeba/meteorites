@@ -54,7 +54,7 @@ struct MeteoriteListView: View {
                                 filtersViewIsShowing = true
                             }
                             .sheet(isPresented: $filtersViewIsShowing, content: {
-                                FiltersView(filtersViewIsShowing: $filtersViewIsShowing)
+                                FiltersView(bridge: viewModel.createBridge(), filtersViewIsShowing: $filtersViewIsShowing)
                             })
                         }
                     }

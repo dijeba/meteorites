@@ -8,6 +8,10 @@
 import MapKit
 
 class MockMeteoriteModelFactory: MeteoriteListModelBuildable {
+    
+    func makeFilteredModel(meteorites: [Meteorite], isFavoriteScreen: Bool, maxSize: Double) -> MeteoriteListModel {
+        return PreviewMockGenerator.MeteoriteList.model
+    }
 
     func makeDefaultModel(isFavoriteScreen: Bool) -> MeteoriteListModel {
         return PreviewMockGenerator.MeteoriteList.model
@@ -20,7 +24,7 @@ class MockMeteoriteModelFactory: MeteoriteListModelBuildable {
 
 class MockFiltersModelFactory: FiltersModelBuildable {
     
-    func makeModel(sliderValue: Double, countrySelectedTitle: String) -> FiltersModel {
+    func makeModel(sliderValue: Double) -> FiltersModel {
         return PreviewMockGenerator.FiltersView.model
     }
 }

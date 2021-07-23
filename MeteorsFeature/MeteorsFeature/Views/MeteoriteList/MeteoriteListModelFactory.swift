@@ -11,6 +11,7 @@ protocol MeteoriteListModelBuildable {
     
     func makeDefaultModel(isFavoriteScreen: Bool) -> MeteoriteListModel
     func makeModel(meteorites: [Meteorite], isFavoriteScreen: Bool) -> MeteoriteListModel
+    func makeFilteredModel(meteorites: [Meteorite], isFavoriteScreen: Bool, maxSize: Double) -> MeteoriteListModel
 }
 
 struct MeteoriteListModelFactory: MeteoriteListModelBuildable {
@@ -30,6 +31,14 @@ struct MeteoriteListModelFactory: MeteoriteListModelBuildable {
         
         return MeteoriteListModel(title: title,
                                   cells: cells)
+    }
+    
+    func makeFilteredModel(meteorites: [Meteorite], isFavoriteScreen: Bool, maxSize: Double) -> MeteoriteListModel {
+        
+        let roundedSize = Int(maxSize.rounded())
+        let filteredMeteorites = meteorites.filter { $0.mass >= roundedSize }
+        
+        return makeModel(meteorites: filteredMeteorites, isFavoriteScreen: isFavoriteScreen)
     }
     
     private func createMeteoriteCellModel(from meteorite: Meteorite, isFavoriteScreen: Bool) -> MeteoriteCellModel {

@@ -10,18 +10,17 @@ import Combine
 
 struct FiltersView: View {
     
-    @State var viewModel: FiltersViewModel = FiltersViewModel()
-    @State private var sliderValue: Double = 1
-    @State var countrySelected: String
+    @ObservedObject var viewModel: FiltersViewModel
+    
+    @State private var sliderValue: Double
     @Binding var filtersViewIsShowing: Bool
     
-    init(viewModel: FiltersViewModel = FiltersViewModel(),
+    init(modelFactory: FiltersModelBuildable = FilterModelFactory(),
+         bridge: MeteoriteListBridge,
          filtersViewIsShowing: Binding<Bool>) {
         
-        // TODO
-//        self.viewModel = viewModel
-//        self.sliderValue = viewModel.data.sizeSliderValue
-        _countrySelected = .init(initialValue: viewModel.data.countrySelected)
+        self.sliderValue = Constants.FiltersView.defaultSliderValue
+        self.viewModel = FiltersViewModel(modelFactory: modelFactory, bridge: bridge)
         _filtersViewIsShowing = filtersViewIsShowing
     }
     
@@ -37,27 +36,20 @@ struct FiltersView: View {
                 HStack {
                     SubtitleTextView(text: viewModel.data.maxSizeTitle)
                         .padding([.leading, .top, .bottom])
-                    SubtitleTextView(text: viewModel.data.maxSize)
+                    SubtitleTextView(text: viewModel.formatSliderValue(sliderValue))
                         .padding([.top, .bottom, .trailing])
                 }
-                Slider(value: $sliderValue, in: 1.0...100.0)
-                    .padding([.leading, .trailing, .bottom])
-                    .accentColor(Color("AccentColor", bundle: .module))
-            }
-            VStack {
-                SubtitleTextView(text: viewModel.data.countrySelectedTitle)
-                    .padding([.top, .leading, .trailing])
                 
-                Picker("Please choose a country", selection: $countrySelected) {
-                    ForEach(viewModel.data.countries, id: \.self) {
-                        Text($0)
-                    }
-                }
+                Slider(
+                    value: $sliderValue,
+                    in: Constants.FiltersView.minSliderValue...Constants.FiltersView.maxSliderValue
+                )
+                .padding([.leading, .trailing, .bottom])
+                .accentColor(Color("AccentColor", bundle: .module))
             }
             Spacer()
             ApplyFiltersButton(action: {
-                viewModel.saveFilterValues(sliderValue: sliderValue,
-                                           countrySelectedTitle: countrySelected)
+                viewModel.saveFilterValues(sliderValue: sliderValue)
                 filtersViewIsShowing = false
             })
             .padding(Constants.FiltersView.paddingBottomSaveButton)
@@ -71,13 +63,16 @@ struct FiltersView_Previews: PreviewProvider {
     
     static var previews: some View {
         
-        let mockViewModel = FiltersViewModel(modelFactory: MockFiltersModelFactory())
+        let bridge = MeteoriteListBridge(onNewFilterSelected: nil)
+        let mockFactory = MockFiltersModelFactory()
         
-        FiltersView(viewModel: mockViewModel,
+        FiltersView(modelFactory: mockFactory,
+                    bridge: bridge,
                     filtersViewIsShowing: .constant(true))
             .preferredColorScheme(.light)
         
-        FiltersView(viewModel: mockViewModel,
+        FiltersView(modelFactory: mockFactory,
+                    bridge: bridge,
                     filtersViewIsShowing: .constant(true))
             .preferredColorScheme(.dark)
     }

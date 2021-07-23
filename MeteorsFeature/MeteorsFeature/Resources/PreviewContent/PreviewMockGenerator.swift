@@ -68,8 +68,6 @@ enum PreviewMockGenerator {
             subtitle: Constants.FiltersView.subtitle,
             maxSizeTitle: Constants.FiltersView.sizeText,
             sizeSliderValue: 50,
-            countrySelectedTitle: Constants.FiltersView.countrySelectedText,
-            countrySelected: "USA",
             titleApplyButton: Constants.FiltersView.buttonText
         )
     }

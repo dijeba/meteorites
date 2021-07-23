@@ -37,6 +37,22 @@ class MeteoriteListViewModel: ObservableObject {
     func getMeteorite(id: Int) -> Meteorite {
         meteorsFeature.meteorites.first { $0.id == id } ?? PreviewMockGenerator.MeteoriteBusinessModel.model
     }
+    
+    func createBridge() -> MeteoriteListBridge {
+        
+        let onNewFilterSelected: MeteoriteListBridge.OnNewFilterSelected = { [weak self] filtersModel in
+            
+            guard let self = self else {
+                return
+            }
+            
+            self.data = self.modelFactory.makeFilteredModel(meteorites: meteorsFeature.meteorites,
+                                                            isFavoriteScreen: self.isFavoriteScreen,
+                                                            maxSize: filtersModel.sizeSliderValue)
+        }
+        
+        return MeteoriteListBridge(onNewFilterSelected: onNewFilterSelected)
+    }
 }
 
 // MARK: - Private

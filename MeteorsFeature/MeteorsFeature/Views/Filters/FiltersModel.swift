@@ -13,15 +13,9 @@ struct FiltersModel {
     let subtitle: String
     let maxSizeTitle: String
     let sizeSliderValue: Double
-    let countrySelectedTitle: String
-    let countrySelected: String
     let titleApplyButton: String
     
     var maxSize: String {
         "> \(sizeSliderValue.rounded()) g"
-    }
-    
-    var countries: [String] {
-        ["Spain", "Germany", "Ireland", "US", "Spain", "Germany", "Ireland", "US", "Spain", "Germany", "Ireland", "US", "Spain", "Germany", "Ireland", "US", "Spain", "Germany", "Ireland", "US", "Spain", "Germany", "Ireland", "US"]
     }
 }
