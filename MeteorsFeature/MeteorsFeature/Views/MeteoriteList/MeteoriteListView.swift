@@ -46,8 +46,15 @@ struct MeteoriteListView: View {
                 }
                 
                 if !isFavoriteScreen {
-                    VStack {
+                    VStack(spacing: Constants.MeteoriteList.spacingFloatingButtons) {
                         Spacer()
+                        HStack {
+                            Spacer()
+                            RefreshButton {
+                                viewModel.resetFilters()
+                                viewModel.downloadMeteorites(force: true)
+                            }
+                        }
                         HStack {
                             Spacer()
                             FloatingButton {
@@ -61,7 +68,7 @@ struct MeteoriteListView: View {
                                 )
                             })
                         }
-                    }
+                    }.padding()
                 }
             }
             .background(MeteoriteListBackgroundView())

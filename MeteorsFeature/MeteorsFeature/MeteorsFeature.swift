@@ -40,24 +40,3 @@ public class MeteorsFeature {
         return MeteorsFeatureContainerView(viewType: containerView)
     }
 }
-
-extension Bundle {
-    
-    static var module: Bundle? {
-        Bundle(identifier: "diego.MeteorsFeature")
-    }
-}
-
-extension DispatchQueue {
-    
-    /// Make sure the passed closure uses the main thread.
-    /// Useful for code that can be called from background threads on production and from the main thread in tests
-    /// - Parameter job: code to run on the main thread
-    static func guaranteeMainThread(_ job: @escaping () -> Void) {
-        if Thread.isMainThread {
-            job()
-        } else {
-            DispatchQueue.main.async(execute: job)
-        }
-    }
-}

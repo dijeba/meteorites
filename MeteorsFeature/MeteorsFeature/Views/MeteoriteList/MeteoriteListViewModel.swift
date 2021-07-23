@@ -16,7 +16,7 @@ class MeteoriteListViewModel: ObservableObject {
     private let modelFactory: MeteoriteListModelBuildable
     private let manager: MeteoriteListManagerProtocol
     private var subscription: AnyCancellable?
-    var stateFiltersModel: FiltersModel? /// we need to save the state in order to 'remember' which filters have been set
+    private(set) var stateFiltersModel: FiltersModel? /// we need to save the state in order to 'remember' which filters have been set
     
     init(isFavoriteScreen: Bool,
          modelFactory: MeteoriteListModelBuildable = MeteoriteListModelFactory(),
@@ -55,6 +55,43 @@ class MeteoriteListViewModel: ObservableObject {
         
         return MeteoriteListBridge(filtersModel: stateFiltersModel, onNewFilterSelected: onNewFilterSelected)
     }
+    
+    func downloadMeteorites(force: Bool) {
+        
+        /// Cache
+        
+        guard meteorsFeature.meteorites.isEmpty || force else {
+            return
+        }
+        
+        manager.fetchMeteorites { [weak self] result in
+            
+            guard let self = self else {
+                return
+            }
+            
+            switch result {
+            case .success(let meteorites):
+                
+                let processedMeteorites = self.processFavorites(meteorites: meteorites,
+                                                                favorites: self.manager.getFavorites())
+                
+                meteorsFeature.meteorites = processedMeteorites
+                
+                DispatchQueue.guaranteeMainThread {
+                    self.data = self.modelFactory.makeModel(meteorites: processedMeteorites,
+                                                            isFavoriteScreen: false)
+                }
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    func resetFilters() {
+        stateFiltersModel = nil
+    }
 }
 
 // MARK: - Private
@@ -87,7 +124,7 @@ extension MeteoriteListViewModel {
         if isFavoriteScreen {
             getFavorites()
         } else {
-            downloadMeteorites()
+            downloadMeteorites(force: false)
         }
     }
     
@@ -95,38 +132,6 @@ extension MeteoriteListViewModel {
         
         let favs = manager.getFavorites()
         data = modelFactory.makeModel(meteorites: favs, isFavoriteScreen: true)
-    }
-    
-    private func downloadMeteorites() {
-        
-        /// Cache
-        guard meteorsFeature.meteorites.isEmpty else {
-            return
-        }
-        
-        manager.fetchMeteorites { [weak self] result in
-            
-            guard let self = self else {
-                return
-            }
-            
-            switch result {
-            case .success(let meteorites):
-                
-                let processedMeteorites = self.processFavorites(meteorites: meteorites,
-                                                                favorites: self.manager.getFavorites())
-                
-                meteorsFeature.meteorites = processedMeteorites
-                
-                DispatchQueue.guaranteeMainThread {
-                    self.data = self.modelFactory.makeModel(meteorites: processedMeteorites,
-                                                            isFavoriteScreen: false)
-                }
-                
-            case .failure(let error):
-                print(error)
-            }
-        }
     }
     
     private func processFavorites(meteorites: [Meteorite],
